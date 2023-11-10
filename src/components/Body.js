@@ -7,77 +7,52 @@ const Body = () => {
   const [listOfRestaurants,setListOfRestaurants] = useState(resList);
 
   useEffect(()=>{
-    console.log("useEffect is called")
+    fetchData();
   },[]);
 
-  const fetchData = async ()=>{
-    const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING");
-    
-  }
+  const fetchData = async () => {
+    try {
+      const data = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+      );
 
+      const json = await data.json();
+      // console.log(json);
+
+      //It may showing an error during data fetching because sometime data coming from cards[1] sometime cards[2] and different on other times so me make a function and check which value of i gives data in cards[i]
+      async function checkJsonData(jsonData) {
+        for (let i = 0; i < jsonData?.data?.cards.length; i++) {
+          let checkData =
+            json?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
+              ?.restaurants;
+
+          // if checkData is not undefined then return it
+          if (checkData !== undefined) {
+            return checkData;
+          }
+        }
+      }
+      // call the checkJsonData() function which return Swiggy Restaurant data
+      const resData = await checkJsonData(json);
+      // console.log(resData);
+
+      // update the state variable restaurants with Swiggy API data
+      setListOfRestaurants(resData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   // normal js variable
+
+  // console.log(listOfRestaurants);
   
 
-
-  // let listOfRestaurantsJS = [
-  //   {
-  //     data: {
-  //       id: "365010",
-  //       name: "Hotel Salam",
-
-  //       cloudinaryImageId: "hgdmw8uwgewhiewwovjh",
-  //       cuisines: ["Biryani", "Tandoor", "Arabian", "Indian", "Beverages"],
-
-  //       costForTwo: 25000,
-  //       costForTwoString: "₹250 FOR TWO",
-  //       deliveryTime: 31,
-
-  //       avgRating: "3.9",
-  //       totalRatings: 500,
-  //       new: false,
-  //     },
-  //   },
-  //   {
-  //     data: {
-  //       id: "365011",
-  //       name: "KFC",
-
-  //       cloudinaryImageId: "hgdmw8uwgewhiewwovjh",
-  //       cuisines: ["Biryani", "Tandoor", "Arabian", "Indian", "Beverages"],
-
-  //       costForTwo: 25000,
-  //       costForTwoString: "₹250 FOR TWO",
-  //       deliveryTime: 31,
-
-  //       avgRating: "4.8",
-  //       totalRatings: 500,
-  //       new: false,
-  //     },
-  //   },
-  //   {
-  //     data: {
-  //       id: "365012",
-  //       name: "Dominos",
-
-  //       cloudinaryImageId: "hgdmw8uwgewhiewwovjh",
-  //       cuisines: ["Biryani", "Tandoor", "Arabian", "Indian", "Beverages"],
-
-  //       costForTwo: 25000,
-  //       costForTwoString: "₹250 FOR TWO",
-  //       deliveryTime: 31,
-
-  //       avgRating: "4.2",
-  //       totalRatings: 500,
-  //       new: false,
-  //     },
-  //   },
-  // ];
   return (
     <div className="body">
       <div className="filter">
         <button className="filter-btn" onClick={() => {
           // filter logic here.
-          const filteredList =listOfRestaurants.filter(res=>res.data.avgRating>4);
+          const filteredList =listOfRestaurants.filter(res=>res.info.avgRating>4);
           console.log(filteredList);
           setListOfRestaurants(filteredList);
          
@@ -85,14 +60,17 @@ const Body = () => {
           Top Rated Restaurants
         </button>
         <button className="filter-btn" onClick={() => {
-          setListOfRestaurants(resList);         
+          setListOfRestaurants(resList); 
+          fetchData();        
         }}>
           Show All Restaurants
         </button>
       </div>
       <div className="res-container">
         {listOfRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.data.id} resData={restaurant} />
+          <RestaurantCard key={restaurant?.info.id} {...restaurant?.info} />
+    
+          
         ))}
       </div>
     </div>
