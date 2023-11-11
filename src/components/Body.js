@@ -6,6 +6,7 @@ const Body = () => {
 
   // state variable - super powerful variable..
   const [listOfRestaurants,setListOfRestaurants] = useState([]);
+  const [searchRestaurants,setSearchRestaurants] = useState([]);
 
   const [searchText,setSearchText] = useState("");
 
@@ -40,6 +41,7 @@ const Body = () => {
 
       // update the state variable restaurants with Swiggy API data
       setListOfRestaurants(resData);
+      setSearchRestaurants(resData);
     } catch (error) {
       console.log(error);
     }
@@ -60,7 +62,7 @@ const Body = () => {
           <button onClick={()=>{
               console.log(searchText);
               const searchData = listOfRestaurants.filter(res=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
-              setListOfRestaurants(searchData);
+              setSearchRestaurants(searchData);
           }}>Search</button>
         </div>
         <button className="filter-btn" onClick={() => {
@@ -80,10 +82,8 @@ const Body = () => {
       </div>
       <div className="res-container">
        
-        {listOfRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant?.info.id} {...restaurant?.info} />
-    
-          
+        {searchRestaurants.map((restaurant) => (
+          <RestaurantCard key={restaurant?.info.id} {...restaurant?.info} />         
         ))}
       </div>
     </div>
