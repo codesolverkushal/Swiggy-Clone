@@ -61,6 +61,7 @@
     align-items: center;
     justify-content: center; /* Center the items */
   }
+ 
   .body{
     background-color: #add5ae;
   }
@@ -129,4 +130,16 @@
 }
 .login:hover{
   background-color: #045307;
+}
+
+/* Styling on the search bar */
+.filter{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 585px){
+.filter{
+  flex-direction: column;
+}
 }

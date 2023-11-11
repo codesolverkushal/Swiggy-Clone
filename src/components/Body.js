@@ -7,6 +7,9 @@ const Body = () => {
   // state variable - super powerful variable..
   const [listOfRestaurants,setListOfRestaurants] = useState([]);
 
+  const [searchText,setSearchText] = useState("");
+
+
   useEffect(()=>{
     fetchData();
   },[]);
@@ -52,6 +55,14 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input type="text" className="search-box" value={searchText} onChange={(e)=>setSearchText(e.target.value)} />
+          <button onClick={()=>{
+              console.log(searchText);
+              const searchData = listOfRestaurants.filter(res=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+              setListOfRestaurants(searchData);
+          }}>Search</button>
+        </div>
         <button className="filter-btn" onClick={() => {
           const filteredList =listOfRestaurants.filter(res=>res.info.avgRating>4);
           console.log(filteredList);
