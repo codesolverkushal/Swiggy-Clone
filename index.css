@@ -55,6 +55,18 @@
   cursor: pointer;
 }
 
+
+@media (max-width: 470px) {
+  .res-container {
+    align-items: center;
+    justify-content: center; /* Center the items */
+  }
+  .body{
+    background-color: #add5ae;
+  }
+}
+
+
 /* Shimmer card css */
 
 /* Base styles for the shimmer effect */
@@ -73,7 +85,7 @@
   margin: 10px;
   position: relative;
   overflow: hidden;
-  animation: shimmer 2s ease-in-out infinite;
+  animation: shimmer 3s ease-in-out infinite;
 }
 
 
@@ -81,7 +93,7 @@
 
 @keyframes shimmer {
   0% {
-    opacity: 1;
+    opacity: 0.8;
     transform: scale(1);
     filter: brightness(1);
   }
@@ -91,8 +103,30 @@
     filter: brightness(1.1);
   }
   100% {
-    opacity: 1;
+    opacity: 0.8;
     transform: scale(1);
     filter: brightness(1);
   }
+}
+
+
+
+/* Style the login button */
+
+.login {
+  background-color: #4CAF50; /* Green background */
+  border: none;
+  color: white; /* White text */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 1s;
+  /* Other styles you want to apply */
+}
+.login:hover{
+  background-color: #045307;
 }
