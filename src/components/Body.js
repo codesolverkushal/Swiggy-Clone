@@ -1,6 +1,5 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState,useEffect } from "react";
-// import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 const Body = () => {
 
@@ -46,11 +45,7 @@ const Body = () => {
       console.log(error);
     }
   };
-  // console.log(listOfRestaurants);
 
-  // if(listOfRestaurants.length === 0){
-  //     return <Shimmer/>     
-  // }
 
   return listOfRestaurants.length === 0 ?
   ( <Shimmer/>
