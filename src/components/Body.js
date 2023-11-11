@@ -1,10 +1,11 @@
 import RestaurantCard from "./RestaurantCard";
 import { useState,useEffect } from "react";
-import resList from "../utils/mockData";
+// import resList from "../utils/mockData";
+import Shimmer from "./Shimmer";
 const Body = () => {
 
   // state variable - super powerful variable..
-  const [listOfRestaurants,setListOfRestaurants] = useState(resList);
+  const [listOfRestaurants,setListOfRestaurants] = useState([]);
 
   useEffect(()=>{
     fetchData();
@@ -41,7 +42,11 @@ const Body = () => {
     }
   };
   // console.log(listOfRestaurants);
-  
+
+  if(listOfRestaurants.length === 0){
+    // return <h1 align="center">Loading...</h1>
+      return <Shimmer/>     
+  }
 
   return (
     <div className="body">
@@ -55,13 +60,14 @@ const Body = () => {
           Top Rated Restaurants
         </button>
         <button className="filter-btn" onClick={() => {
-          setListOfRestaurants(resList); 
+          setListOfRestaurants([]); 
           fetchData();        
         }}>
           Show All Restaurants
         </button>
       </div>
       <div className="res-container">
+       
         {listOfRestaurants.map((restaurant) => (
           <RestaurantCard key={restaurant?.info.id} {...restaurant?.info} />
     
@@ -70,6 +76,7 @@ const Body = () => {
       </div>
     </div>
   );
+        
 };
 
 export default Body;
