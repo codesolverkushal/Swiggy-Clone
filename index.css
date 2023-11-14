@@ -138,7 +138,7 @@
   align-items: center;
   justify-content: center;
 }
-@media (max-width: 585px){
+@media (max-width: 602px){
 .filter{
   flex-direction: column;
 }

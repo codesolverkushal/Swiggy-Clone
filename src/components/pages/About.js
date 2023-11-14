@@ -1,0 +1,15 @@
+import Header from "../Header";
+
+const About = ()=>{
+    return(
+        <div>
+            <Header/>
+            <center>
+            <h1 >About</h1>
+            <h2>Data will be available soon</h2>
+            </center>
+        </div>
+    )
+}
+
+export default About;

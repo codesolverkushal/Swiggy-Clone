@@ -6,6 +6,10 @@ const Body = () => {
   // state variable - super powerful variable..
   const [listOfRestaurants,setListOfRestaurants] = useState([]);
   const [searchRestaurants,setSearchRestaurants] = useState([]);
+  
+  // set by kushal
+
+  const [showMessage,setShowMessage] = useState(false);
 
   const [searchText,setSearchText] = useState("");
 
@@ -17,8 +21,8 @@ const Body = () => {
   const fetchData = async () => {
     try {
       const data = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.449923&lng=80.3318736&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      );
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        );
 
       const json = await data.json();
 
@@ -58,17 +62,26 @@ const Body = () => {
               console.log(searchText);
               const searchData = listOfRestaurants.filter(res=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
               setSearchRestaurants(searchData);
+             
           }}>Search</button>
         </div>
         <button className="filter-btn" onClick={() => {
-          const filteredList =listOfRestaurants.filter(res=>res.info.avgRating>4);
-          console.log(filteredList);
-          setListOfRestaurants(filteredList);
+          const filteredList =searchRestaurants.filter(res=>res.info.avgRating>4);
+          // console.log(filteredList);
+          if(filteredList.length == 0){
+            setSearchRestaurants(filteredList);
+            setShowMessage(true);
+          }
+          else{
+            setSearchRestaurants(filteredList);
+          }
+ 
          
         }}>
           Top Rated Restaurants
         </button>
         <button className="filter-btn" onClick={() => {
+          setShowMessage(false);
           setListOfRestaurants([]); 
           fetchData();        
         }}>
@@ -77,6 +90,12 @@ const Body = () => {
       </div>
       <div className="res-container">
        
+      {showMessage && (
+          <h1>
+            Item's not found{" "}
+            <span style={{ color: "red", alignContent:"center" }}>Please click on Show all restaurants</span>
+          </h1>
+        )}
         {searchRestaurants.map((restaurant) => (
           <RestaurantCard key={restaurant?.info.id} {...restaurant?.info} />         
         ))}
