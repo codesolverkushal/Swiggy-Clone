@@ -93,7 +93,7 @@ const Body = () => {
       {showMessage && (
           <h1>
             Item's not found{" "}
-            <span style={{ color: "red", alignContent:"center" }}>Please click on Show all restaurants</span>
+            <span style={{ color: "red"}}>Please click on Show all restaurants</span>
           </h1>
         )}
         {searchRestaurants.map((restaurant) => (
