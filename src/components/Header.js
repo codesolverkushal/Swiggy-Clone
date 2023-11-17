@@ -31,7 +31,8 @@ const Header = () => {
                     }}
                     style={{ backgroundColor: btnNameReact === "Login" ? "green" : "red" }}
                   >
-                    {btnNameReact}
+                    <NavLink className="login-btn-nav" to="/authentication"> {btnNameReact}</NavLink>
+                   
             </button>
         </ul>
       </nav>

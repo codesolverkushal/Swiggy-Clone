@@ -6,8 +6,7 @@ const RestaurantCard = ({
   avgRating,
   costForTwo,
   totalRatingsString
-
-}) => {
+  }) => {
   return (
     <div
       className="res-card"

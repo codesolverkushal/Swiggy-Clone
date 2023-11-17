@@ -131,6 +131,10 @@
 .login:hover{
   background-color: #045307;
 }
+.login > .login-btn-nav{
+ text-decoration: none;
+ color: #fff;
+}
 
 /* Styling on the search bar */
 .filter{
@@ -143,3 +147,103 @@
   flex-direction: column;
 }
 }
+
+
+/* Style the menu card */
+
+/* .menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 70vh; 
+  margin-top: 0; 
+} */
+
+
+.menu {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 10px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.menu p {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.menu h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.menu li {
+  font-size: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.menu li:hover {
+  background-color: #e0e0e0;
+}
+
+/* Add a class to hide the menu items */
+.menu-hidden {
+  display: none;
+}
+
+/* toggle button (show or hide menu) */
+.button-style {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.button-style h4 {
+  margin: 0; /* Remove default margin for h4 */
+}
+
+.menu h1 {
+  margin-right: 50px; /* Adjust the margin to create space for the button */
+}
+
+
+/* Card style change  */
+
+.link-decoration{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+
+
