@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Shimmer from "../Shimmer";
+import MenuShi from "../MenuShimmer/MenuShi";
 import { useParams } from "react-router-dom";
 import { MENU_API } from "../../utils/constants";
 
@@ -37,7 +37,7 @@ const RestaurantMenu = () => {
   }, [resId]);
 
   if (resInfo === null) {
-    return <Shimmer />;
+    return <MenuShi/>;
   }
   console.log(infoCards.length);
 
