@@ -30,15 +30,40 @@
   justify-content: center;
 }
 
-.res-card{
+.res-card {
   margin: 5px;
-  padding: 5px;
+  padding: 15px;
   width: 210px;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
 }
 
-.res-card:hover{
+.res-logo {
+  margin-bottom: 10px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.res-card h3 {
+  margin: 5px 0;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333333;
+}
+
+.res-card h4 {
+  margin: 3px 0;
+  font-size: 1rem;
+  color: #777777;
+}
+
+.res-card:hover {
   cursor: pointer;
-  border: 1px solid black;
+  background: #f0f0f0;
+  transform: scale(0.95);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .search{
