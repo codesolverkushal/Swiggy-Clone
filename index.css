@@ -274,4 +274,18 @@
 }
 
 
+/* Github Profile Style..*/
+
+.about-card > .user-card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.githubAvar{
+  width: 100px;
+  /* height: inherit; */
+  border-radius: 50%;
+}
 
