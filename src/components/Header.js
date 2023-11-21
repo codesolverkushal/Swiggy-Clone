@@ -17,7 +17,9 @@ const Header = () => {
   return (   
     <header className="navbar">
       <div className="logo">
-        <img src={LOGO_URL} alt="Swiggy Logo" />
+      <NavLink to="/">
+          <img src={LOGO_URL} alt="Swiggy Logo" />
+        </NavLink>
       </div>
       <nav>
         <ul>

@@ -1,7 +1,8 @@
 /* ContactUs.css */
 
 .contact-us-container {
-    max-width: 800px;
+
+    max-width: 500px;
     margin: 0 auto;
     padding: 40px;
     text-align: center;
@@ -32,7 +33,7 @@
     font-weight: bold;
   }
   
-  input,
+  .contact-form input,
   textarea {
     width: 100%;
     padding: 10px;
@@ -41,7 +42,7 @@
     border-radius: 5px;
   }
   
-  button {
+  .contactUsButton {
     background-color: #4caf50;
     color: #fff;
     padding: 10px 20px;
@@ -50,9 +51,9 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-  }
+  } 
   
-  button:hover {
+   .contactUsButto:hover {
     background-color: #45a049;
   }
   
