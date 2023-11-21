@@ -289,3 +289,21 @@
   border-radius: 50%;
 }
 
+/* Style the contact us page */
+
+.contact-us-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.contact-form {
+  margin-top: 40px;
+}

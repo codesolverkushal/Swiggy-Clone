@@ -19,8 +19,8 @@ class About extends Component{
         return(
             <div className="about-card">
             
-            <User name={"Kushal Pratap Singh (function)"}/>
-            {/* <UserClass name = {"Kushal Pratap Singh (class)"} location={"Dehradun"}/> */}
+            {/* <User name={"Kushal Pratap Singh (function)"}/> */}
+            <UserClass name = {"Kushal Pratap Singh (class)"} location={"Dehradun"}/>
            
         </div>
         );

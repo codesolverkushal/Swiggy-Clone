@@ -13,11 +13,11 @@ class UserClass extends React.Component{
             }
         }
 
-        // console.log("Child Constructor");
+        console.log("Child Constructor");
     }
 
     async componentDidMount(){
-        // console.log("Child Component Did Mount");
+        console.log("Child Component Did Mount");
 
         const data = await fetch("https://api.github.com/users/codesolverkushal");
         const json = await data.json();
@@ -29,11 +29,20 @@ class UserClass extends React.Component{
         
         console.log(json);
     }
+
+    componentDidUpdate(){
+        console.log("Component Did Update");
+    }
+
+    componentWillUnmount(){
+        console.log("Component will unmount");
+    }
+    
     render(){
 
         const {name,location,bio,avatar_url} = this.state.userInfo;
         
-        // console.log("Child Render");
+        console.log("Child Render");
 
         return(
             <div className="user-card">
@@ -51,3 +60,26 @@ class UserClass extends React.Component{
 }
 
 export default UserClass;
+
+
+
+
+/****
+ * --- Mouting ----
+ * 
+ * 
+ * Constructor (dummy)
+ * Render (dummy)
+ * <HTML Dummy>
+ * componentDidMount
+ * 
+ * API Call
+ * this.setState -> state variable is updated
+ * 
+ * --- Update
+ * 
+ * render (API Data)
+ * <HTML (New API data)>
+ * 
+ * component Did Update.
+ */ 
