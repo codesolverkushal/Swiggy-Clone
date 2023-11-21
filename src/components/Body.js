@@ -67,7 +67,7 @@ const Body = () => {
           }}>Search</button>
         </div>
         <button className="filter-btn" onClick={() => {
-          const filteredList =searchRestaurants.filter(res=>res.info.avgRating>4);
+          const filteredList =searchRestaurants.filter(res=>res.info.avgRating>4.4);
           // console.log(filteredList);
           if(filteredList.length == 0){
             setSearchRestaurants(filteredList);
@@ -83,8 +83,8 @@ const Body = () => {
         </button>
         <button className="filter-btn" onClick={() => {
           setShowMessage(false);
-          setListOfRestaurants([]); 
-          fetchData();        
+          setSearchRestaurants(listOfRestaurants); 
+              
         }}>
           Show All Restaurants
         </button>
