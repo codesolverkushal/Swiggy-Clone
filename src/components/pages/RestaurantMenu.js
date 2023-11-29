@@ -1,27 +1,18 @@
 import { useEffect, useState } from "react";
 import MenuShi from "../MenuShimmer/MenuShi";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../../utils/constants";
+import useRestaurantMenu from './../../utils/useRestaurantMenu';
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
 
-  const [resInfo, setResInfo] = useState(null);
   const [menuHidden, setMenuHidden] = useState(false);
   const [buttonName, setButtonName] = useState(true);
 
+
+  const {resInfo,infoCards} = useRestaurantMenu(resId);
+  
  
-
-  useEffect(() => {
-      fetchMenu();
-  },[]);
-    const fetchMenu = async () => {
-   
-        const data = await fetch(MENU_API + resId);
-        const json = await data.json();
-        setResInfo(json.data);
-    };
-
   if (resInfo === null) {
     return <MenuShi/>;
   }
@@ -57,16 +48,12 @@ const RestaurantMenu = () => {
 
       
       <ul className={menuHidden ? "menu-hidden" : ""}>
-        {itemCards.length > 0 ? (
-          itemCards.map((item, index) => (
-            <li key={index}>
-              {item.card.info.name} - {" Rs."}
-              {(item.card.info.price || item.card.info.defaultPrice) / 100}
-            </li>
-          ))
-        ) : (
-          <li>Service will be available soon...</li>
-  )}
+      {itemCards.map((item) => (
+          <li key={item.card.info.id}>
+            {item.card.info.name} -{" Rs."}
+            {item.card.info.price / 100 || item.card.info.defaultPrice / 100}
+          </li>
+        ))}
 </ul>
     </div>
   );
