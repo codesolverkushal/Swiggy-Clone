@@ -60,7 +60,7 @@ const Body = () => {
         <div className="search">
           <input type="text" className="search-box" value={searchText} onChange={(e)=>setSearchText(e.target.value)} />
           <button onClick={()=>{
-              console.log(searchText);
+              // console.log(searchText);
               const searchData = listOfRestaurants.filter(res=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
               setSearchRestaurants(searchData);
              

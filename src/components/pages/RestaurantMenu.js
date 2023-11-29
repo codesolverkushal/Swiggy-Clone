@@ -7,42 +7,28 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
 
   const [resInfo, setResInfo] = useState(null);
-  const [infoCards, setInfoCards] = useState([]);
   const [menuHidden, setMenuHidden] = useState(false);
   const [buttonName, setButtonName] = useState(true);
 
  
 
   useEffect(() => {
+      fetchMenu();
+  },[]);
     const fetchMenu = async () => {
-      try {
+   
         const data = await fetch(MENU_API + resId);
         const json = await data.json();
         setResInfo(json.data);
-
-        // Extract and set infoCards after setting resInfo
-        const x = json.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-        const extractedInfoCards = x
-          ?.map((card) => card?.card?.card.itemCards)
-          .filter((checkData) => checkData !== undefined)
-          .flat()
-          .slice(0, 16); // Limit to the first 20 items
-        setInfoCards(extractedInfoCards || []);
-      } catch (error) {
-        console.error("Error fetching menu:", error);
-      }
     };
-
-    fetchMenu();
-  }, [resId]);
 
   if (resInfo === null) {
     return <MenuShi/>;
   }
-  console.log(infoCards.length);
 
   const { name, cuisines, costForTwoMessage } = resInfo?.cards[0]?.card?.card?.info;
-
+   
+  const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
   // toggle button it is the extra style..
   const toggleMenu = () => {
@@ -71,8 +57,8 @@ const RestaurantMenu = () => {
 
       
       <ul className={menuHidden ? "menu-hidden" : ""}>
-        {infoCards.length > 0 ? (
-          infoCards.map((item, index) => (
+        {itemCards.length > 0 ? (
+          itemCards.map((item, index) => (
             <li key={index}>
               {item.card.info.name} - {" Rs."}
               {(item.card.info.price || item.card.info.defaultPrice) / 100}
