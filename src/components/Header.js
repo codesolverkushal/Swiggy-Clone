@@ -29,6 +29,7 @@ const Header = () => {
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/about">About</NavLink></li>
             <li><NavLink to="/contact">Contact Us</NavLink></li>
+            <li><NavLink to = "/grocery">Grocery</NavLink></li>
             <li><NavLink to="/cart">Cart</NavLink></li>
             <button className="login"
                     onClick={()=>{
