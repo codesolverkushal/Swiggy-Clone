@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import "../../kushal.css";
 import { LOGO_URL } from "../utils/constants";
 import { NavLink } from "react-router-dom";
+import useOnlineStatus from './../utils/useOnlineStatus';
 const Header = () => {
   // const btnName = "Login";
   const [btnNameReact,setBtnNameReact] = useState("Login");
+  const onlineStatus = useOnlineStatus();
   console.log("Header Render");
 
   // if no dependency array => useEffect is called on every render.
@@ -23,6 +25,7 @@ const Header = () => {
       </div>
       <nav>
         <ul>
+            <li>Online Status: {onlineStatus ? "✅" : "🔴"}</li>
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/about">About</NavLink></li>
             <li><NavLink to="/contact">Contact Us</NavLink></li>
