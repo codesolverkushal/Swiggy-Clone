@@ -48,7 +48,7 @@ const RestaurantMenu = () => {
 
       
       <ul className={menuHidden ? "menu-hidden" : ""}>
-      {itemCards.map((item) => (
+      {infoCards.map((item) => (
           <li key={item.card.info.id}>
             {item.card.info.name} -{" Rs."}
             {item.card.info.price / 100 || item.card.info.defaultPrice / 100}

@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = () => {
 
   // state variable - super powerful variable..
@@ -13,11 +14,13 @@ const Body = () => {
   const [showMessage,setShowMessage] = useState(false);
 
   const [searchText,setSearchText] = useState("");
+  const [minRating, setMinRating] = useState(4.4); // Default minimum rating
 
 
   useEffect(()=>{
     fetchData();
   },[]);
+  
 
   const fetchData = async () => {
     try {
@@ -52,6 +55,27 @@ const Body = () => {
   };
 
 
+  const handleTopRatedFilter = () => {
+    setShowMessage(false);
+    const filteredList = listOfRestaurants.filter(
+      (res) => res.info.avgRating >= minRating
+    );
+
+    if (filteredList.length === 0) {
+      setSearchRestaurants(filteredList);
+      setShowMessage(true);
+    } else {
+      setSearchRestaurants(filteredList);
+    }
+  };
+
+  const onlineStatus = useOnlineStatus();
+
+  if(onlineStatus === false){
+    return <h1>Offline...</h1>
+  }
+ 
+
   return listOfRestaurants.length === 0 ?
   ( <Shimmer/>
   ) : (
@@ -66,7 +90,7 @@ const Body = () => {
              
           }}>Search</button>
         </div>
-        <button className="filter-btn" onClick={() => {
+        {/* <button className="filter-btn" onClick={() => {
           const filteredList =searchRestaurants.filter(res=>res.info.avgRating>4.4);
           // console.log(filteredList);
           if(filteredList.length == 0){
@@ -79,6 +103,20 @@ const Body = () => {
  
          
         }}>
+          Top Rated Restaurants
+        </button> */}
+
+       <label>
+          Minimum Rating:
+          <input
+            type="number"
+            step="0.1"
+            min="0"
+            value={minRating}
+            onChange={(e) => setMinRating(parseFloat(e.target.value))}
+          />
+        </label>
+        <button className="filter-btn" onClick={handleTopRatedFilter}>
           Top Rated Restaurants
         </button>
         <button className="filter-btn" onClick={() => {
