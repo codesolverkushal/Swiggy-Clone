@@ -34,8 +34,14 @@
     margin-top: 15px;
     transition: background-color 0.3s ease;
   }
+
   
   .wow-button:hover {
     background-color: #2980b9;
+  }
+
+  .wow-button-navlink{
+    text-decoration: none;
+    color: #fff;
   }
   

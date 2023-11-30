@@ -6,6 +6,7 @@ import useOnlineStatus from './../utils/useOnlineStatus';
 const Header = () => {
   // const btnName = "Login";
   const [btnNameReact,setBtnNameReact] = useState("Login");
+  const [activeLink, setActiveLink] = useState("Home"); // Initialize with the default active link
   const onlineStatus = useOnlineStatus();
   console.log("Header Render");
 
@@ -15,10 +16,21 @@ const Header = () => {
   useEffect(()=>{
     console.log("useEffect Called");
   },[btnNameReact])
+
+  
+  const handleLinkClick = (link) => {
+    setActiveLink(link);
+    // Additional logic if needed
+  };
+
+
+  const navbarStyle = {
+    backgroundColor: activeLink === "Grocery" ? "rgb(139, 188, 139)" : "#d2978e",
+  };
   
   return (   
-    <header className="navbar">
-      <div className="logo">
+    <header className="navbar" style={navbarStyle}>    
+    <div className="logo">
       <NavLink to="/">
           <img src={LOGO_URL} alt="Swiggy Logo" />
         </NavLink>
@@ -26,11 +38,11 @@ const Header = () => {
       <nav>
         <ul>
             <li>Online Status: {onlineStatus ? "✅" : "🔴"}</li>
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/about">About</NavLink></li>
-            <li><NavLink to="/contact">Contact Us</NavLink></li>
-            <li><NavLink to = "/grocery">Grocery</NavLink></li>
-            <li><NavLink to="/cart">Cart</NavLink></li>
+            <li><NavLink to="/" onClick={() => handleLinkClick("Home")}>Home</NavLink></li>
+            <li><NavLink to="/about" onClick={() => handleLinkClick("About")}>About</NavLink></li>
+            <li><NavLink to="/contact" onClick={() => handleLinkClick("Contact Us")}>Contact Us</NavLink></li>
+            <li><NavLink to = "/grocery" onClick={() => handleLinkClick("Grocery")}>Grocery</NavLink></li>
+            <li><NavLink to="/cart" onClick={() => handleLinkClick("Cart")}>Cart</NavLink></li>
             <button className="login"
                     onClick={()=>{
                       btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login");
