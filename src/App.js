@@ -1,4 +1,4 @@
-import React from "react";
+import React, {lazy} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -9,7 +9,15 @@ import Cart from "./components/pages/Cart";
 import ErrorPage from "./components/pages/ErrorPage";
 import RestaurantMenu from "./components/pages/RestaurantMenu";
 import LoginPage from "./components/authentication/LoginPage";
-import GroceryList from "./components/grocery/Grocery";
+// import GroceryList from "./components/grocery/Grocery";
+
+
+// Chunking
+// Code Splitting
+// Lazy Loading
+// on demand loading
+
+const GroceryList = lazy(()=> import("./components/grocery/Grocery"));
  
 const AppLayout = () => {
   return (

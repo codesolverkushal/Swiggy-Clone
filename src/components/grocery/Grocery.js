@@ -6,7 +6,7 @@ const GroceryList = () => {
   return (
     <div className="main-menu-container">
     <div className="main-menu">
-      <h1>Welcome!</h1>
+      <h1>Welcome to kp mart!</h1>
       <p>Service will be available soon.</p>
       <button className="wow-button"><NavLink className="wow-button-navlink" to = "/">Back to Main Menu</NavLink></button>
     </div>
