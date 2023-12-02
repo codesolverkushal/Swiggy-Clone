@@ -19,7 +19,7 @@ const Header = () => {
 
   
   return (   
-    <div className="flex justify-between bg-pink-200 shadow-lg sm:bg-yellow-200 lg:bg-pink-200">    
+    <div className="flex justify-between bg-pink-200 shadow-lg sm:bg-yellow-200 lg:bg-pink-200 mb-5">    
     <div className="logo">
           <NavLink to="/"><img className="w-28 ml-4 rounded-full" src={LOGO_URL} alt="Swiggy Logo" /></NavLink>
       </div>
@@ -31,7 +31,7 @@ const Header = () => {
             <li className="px-4"><NavLink to="/contact">Contact Us</NavLink></li>
             <li className="px-4"><NavLink to = "/grocery">Grocery</NavLink></li>
             <li className="px-4"><NavLink to="/cart">Cart</NavLink></li>
-            <button className="login"
+            <button className="bg-blue-500 text-white hover:bg-blue-700 hover:text-white px-2 rounded"
                     onClick={()=>{
                       btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login");
                     }}
