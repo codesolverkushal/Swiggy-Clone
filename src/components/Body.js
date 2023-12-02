@@ -10,9 +10,6 @@ const Body = () => {
   const [searchRestaurants,setSearchRestaurants] = useState([]);
   
   // set by kushal
-
-  const [showMessage,setShowMessage] = useState(false);
-
   const [searchText,setSearchText] = useState("");
 
 
@@ -67,23 +64,14 @@ const Body = () => {
   ( <Shimmer/>
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search m-4 p-4">
-          <input type="text" className="border border-solid border-black" value={searchText} onChange={(e)=>setSearchText(e.target.value)} />
-          <button className="px-4 py-2 bg-green-100 m-4"
-          onClick={()=>{
-              // console.log(searchText);
-              const searchData = listOfRestaurants.filter(res=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
-              setSearchRestaurants(searchData);
-             
-          }}>Search</button>
-        </div>
-        <button className="filter-btn" onClick={() => {
+      <div className="filter flex items-center justify-center">
+
+      <div className="search m-4 p-4 flex items-center">
+        <button className="px-4 py-2 bg-gray-100 rounded-lg" onClick={() => {
           const filteredList =searchRestaurants.filter(res=>res.info.avgRating>4.4);
           // console.log(filteredList);
           if(filteredList.length == 0){
             setSearchRestaurants(filteredList);
-            setShowMessage(true);
           }
           else{
             setSearchRestaurants(filteredList);
@@ -93,25 +81,30 @@ const Body = () => {
         }}>
           Top Rated Restaurants
         </button>
-        <button className="filter-btn" onClick={() => {
-          setShowMessage(false);
-          setSearchRestaurants(listOfRestaurants); 
-              
-        }}>
-          Show All Restaurants
-        </button>
+
+        </div>
+        <div className="search m-4 p-4">
+          <input type="text" className="border border-solid border-black" value={searchText} onChange={(e)=>setSearchText(e.target.value)} />
+          <button className="px-4 py-2 bg-green-100 m-4 rounded-lg"
+          onClick={()=>{
+              // console.log(searchText);
+              const searchData = listOfRestaurants.filter(res=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
+              setSearchRestaurants(searchData);
+             
+          }}>Search</button>
+        </div>
+
+
       </div>
       <div className="res-container">
        
-      {showMessage && (
-          <h1>
-            Item's not found{" "}
-            <span style={{ color: "red"}}>Please click on Show all restaurants</span>
-          </h1>
-        )}
+
+        <div className="flex flex-wrap justify-center items-center">
         {searchRestaurants.map((restaurant) => (
           <Link className="link-decoration" key={restaurant?.info.id} to={"/restaurants/"+ restaurant?.info.id}><RestaurantCard {...restaurant?.info} /></Link>         
         ))}
+
+        </div>
         
       </div>
     </div>

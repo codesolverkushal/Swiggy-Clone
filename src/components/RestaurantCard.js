@@ -9,21 +9,17 @@ const RestaurantCard = ({
   }) => {
   return (
     <div
-      className="res-card"
-      style={{
-        backgroundColor: "#f0f0f0",
-      }}
+      className="m-4 p-4 w-[260px] rounded-lg bg-gray-100 hover:bg-gray-200"
+
     >
       <img
-        className="res-logo"
+        className="rounded-lg"
         // src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/735e039e100fd4631f26dd07f986e074"
         src={CDN_URL + cloudinaryImageId}
         alt="reslogo"
       />
-      {/* <h3>{name}</h3> */}
-      <h3>{name.slice(0, 13)}</h3>
-      {/* <h4> {cuisines.join(", ")}</h4> */}
-      <h4> {cuisines.slice(0, 4).join(", ")} </h4>
+      <h3 className="font-bold py-2">{name.slice(0, 16)}</h3>
+      <h4> {cuisines.slice(0, 2).join(", ")} </h4>
       <h4>{avgRating}</h4>
       <h4>{costForTwo}</h4>
       <h4>{totalRatingsString}</h4>

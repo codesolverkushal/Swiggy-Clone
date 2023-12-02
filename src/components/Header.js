@@ -19,7 +19,7 @@ const Header = () => {
 
   
   return (   
-    <div className="flex justify-between bg-pink-200 shadow-lg mb-3">    
+    <div className="flex justify-between bg-pink-200 shadow-lg sm:bg-yellow-200 lg:bg-pink-200">    
     <div className="logo">
           <img className="w-56" src={LOGO_URL} alt="Swiggy Logo" />
       </div>
