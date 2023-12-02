@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -12,7 +12,9 @@ const Body = () => {
   // set by kushal
   const [searchText,setSearchText] = useState("");
 
+  console.log(listOfRestaurants)
 
+  const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
   useEffect(()=>{
     fetchData();
   },[]);
@@ -101,7 +103,15 @@ const Body = () => {
 
         <div className="flex flex-wrap justify-center items-center">
         {searchRestaurants.map((restaurant) => (
-          <Link className="link-decoration" key={restaurant?.info.id} to={"/restaurants/"+ restaurant?.info.id}><RestaurantCard {...restaurant?.info} /></Link>         
+          <Link className="link-decoration" key={restaurant?.info.id} to={"/restaurants/"+ restaurant?.info.id}>
+            {
+              restaurant?.info.avgRating > 4.4
+              ?( <RestaurantCardPromoted {...restaurant?.info}/>):
+              (<RestaurantCard {...restaurant?.info} />)            
+            }
+           
+            
+            </Link>         
         ))}
 
         </div>

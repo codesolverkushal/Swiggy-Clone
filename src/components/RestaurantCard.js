@@ -5,7 +5,7 @@ const RestaurantCard = ({
   cloudinaryImageId,
   avgRating,
   costForTwo,
-  totalRatingsString
+  totalRatingsString,
   }) => {
   return (
     <div
@@ -26,5 +26,20 @@ const RestaurantCard = ({
     </div>
   );
 };
+
+// Higher order component
+
+// input - restaurantCard =>> RestaurantCardPromoted
+
+export const withPromotedLabel = (RestaurantCard) =>{
+  return (props)=>{
+    return (
+      <div>
+        <label className="absolute bg-black text-white p-2 rounded-lg">Promoted</label>
+        <RestaurantCard {...props}/>
+      </div>
+    )
+  }
+}
 
 export default RestaurantCard;
