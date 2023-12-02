@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import "../../kushal.css";
 import { LOGO_URL } from "../utils/constants";
 import { NavLink } from "react-router-dom";
 import useOnlineStatus from './../utils/useOnlineStatus';
 const Header = () => {
   // const btnName = "Login";
   const [btnNameReact,setBtnNameReact] = useState("Login");
-  const [activeLink, setActiveLink] = useState("Home"); // Initialize with the default active link
   const onlineStatus = useOnlineStatus();
   console.log("Header Render");
 
@@ -18,31 +16,21 @@ const Header = () => {
   },[btnNameReact])
 
   
-  const handleLinkClick = (link) => {
-    setActiveLink(link);
-    // Additional logic if needed
-  };
 
-
-  const navbarStyle = {
-    backgroundColor: activeLink === "Grocery" ? "rgb(139, 188, 139)" : "#d2978e",
-  };
   
   return (   
-    <header className="navbar" style={navbarStyle}>    
+    <div className="flex justify-between bg-pink-200 shadow-lg mb-3">    
     <div className="logo">
-      <NavLink to="/">
-          <img src={LOGO_URL} alt="Swiggy Logo" />
-        </NavLink>
+          <img className="w-56" src={LOGO_URL} alt="Swiggy Logo" />
       </div>
-      <nav>
-        <ul>
-            <li>Online Status: {onlineStatus ? "✅" : "🔴"}</li>
-            <li><NavLink to="/" onClick={() => handleLinkClick("Home")}>Home</NavLink></li>
-            <li><NavLink to="/about" onClick={() => handleLinkClick("About")}>About</NavLink></li>
-            <li><NavLink to="/contact" onClick={() => handleLinkClick("Contact Us")}>Contact Us</NavLink></li>
-            <li><NavLink to = "/grocery" onClick={() => handleLinkClick("Grocery")}>Grocery</NavLink></li>
-            <li><NavLink to="/cart" onClick={() => handleLinkClick("Cart")}>Cart</NavLink></li>
+      <div className="flex items-center">
+        <ul className="flex p-4">
+            <li className="px-4">Online Status: {onlineStatus ? "✅" : "🔴"}</li>
+            <li className="px-4"><NavLink to="/">Home</NavLink></li>
+            <li className="px-4"><NavLink to="/about">About</NavLink></li>
+            <li className="px-4"><NavLink to="/contact">Contact Us</NavLink></li>
+            <li className="px-4"><NavLink to = "/grocery">Grocery</NavLink></li>
+            <li className="px-4"><NavLink to="/cart">Cart</NavLink></li>
             <button className="login"
                     onClick={()=>{
                       btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login");
@@ -53,8 +41,8 @@ const Header = () => {
                    
             </button>
         </ul>
-      </nav>
-    </header>
+      </div>
+    </div>
   );
 };
 
