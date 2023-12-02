@@ -21,10 +21,10 @@ const Header = () => {
   return (   
     <div className="flex justify-between bg-pink-200 shadow-lg sm:bg-yellow-200 lg:bg-pink-200">    
     <div className="logo">
-          <img className="w-56" src={LOGO_URL} alt="Swiggy Logo" />
+          <NavLink to="/"><img className="w-28 ml-4 rounded-full" src={LOGO_URL} alt="Swiggy Logo" /></NavLink>
       </div>
       <div className="flex items-center">
-        <ul className="flex p-4">
+        <ul className="flex p-4 font-bold text-lg">
             <li className="px-4">Online Status: {onlineStatus ? "✅" : "🔴"}</li>
             <li className="px-4"><NavLink to="/">Home</NavLink></li>
             <li className="px-4"><NavLink to="/about">About</NavLink></li>
