@@ -14,7 +14,6 @@ const Body = () => {
   const [showMessage,setShowMessage] = useState(false);
 
   const [searchText,setSearchText] = useState("");
-  const [minRating, setMinRating] = useState(4.4); // Default minimum rating
 
 
   useEffect(()=>{
@@ -55,19 +54,7 @@ const Body = () => {
   };
 
 
-  const handleTopRatedFilter = () => {
-    setShowMessage(false);
-    const filteredList = listOfRestaurants.filter(
-      (res) => res.info.avgRating >= minRating
-    );
 
-    if (filteredList.length === 0) {
-      setSearchRestaurants(filteredList);
-      setShowMessage(true);
-    } else {
-      setSearchRestaurants(filteredList);
-    }
-  };
 
   const onlineStatus = useOnlineStatus();
 
@@ -81,16 +68,17 @@ const Body = () => {
   ) : (
     <div className="body">
       <div className="filter">
-        <div className="search">
-          <input type="text" className="search-box" value={searchText} onChange={(e)=>setSearchText(e.target.value)} />
-          <button onClick={()=>{
+        <div className="search m-4 p-4">
+          <input type="text" className="border border-solid border-black" value={searchText} onChange={(e)=>setSearchText(e.target.value)} />
+          <button className="px-4 py-2 bg-green-100 m-4"
+          onClick={()=>{
               // console.log(searchText);
               const searchData = listOfRestaurants.filter(res=>res.info.name.toLowerCase().includes(searchText.toLowerCase()));
               setSearchRestaurants(searchData);
              
           }}>Search</button>
         </div>
-        {/* <button className="filter-btn" onClick={() => {
+        <button className="filter-btn" onClick={() => {
           const filteredList =searchRestaurants.filter(res=>res.info.avgRating>4.4);
           // console.log(filteredList);
           if(filteredList.length == 0){
@@ -103,20 +91,6 @@ const Body = () => {
  
          
         }}>
-          Top Rated Restaurants
-        </button> */}
-
-       <label>
-          Minimum Rating:
-          <input
-            type="number"
-            step="0.1"
-            min="0"
-            value={minRating}
-            onChange={(e) => setMinRating(parseFloat(e.target.value))}
-          />
-        </label>
-        <button className="filter-btn" onClick={handleTopRatedFilter}>
           Top Rated Restaurants
         </button>
         <button className="filter-btn" onClick={() => {
