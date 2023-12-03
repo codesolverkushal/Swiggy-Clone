@@ -8,6 +8,8 @@ const RestaurantMenu = () => {
   const { resId } = useParams();
 
   const {resInfo,infoCards} = useRestaurantMenu(resId);
+
+  const [showIndex, setShowIndex] = useState(-1);
   
  
   if (resInfo === null) {
@@ -31,7 +33,13 @@ const RestaurantMenu = () => {
 
       {/* Categories accordian */}
 
-      {categories.map((category) =><RestaurantCategory key={category?.card?.title} data = {category?.card?.card}/>)}
+      {categories.map((category,index) =>
+          <RestaurantCategory
+            key={category?.card?.title} 
+            data = {category?.card?.card}
+            showItems = {index == showIndex ? true : false}
+            setShowIndex = {()=> setShowIndex(index)}
+          />)}
     </div>
   );
 };
