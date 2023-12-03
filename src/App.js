@@ -1,4 +1,4 @@
-import React, {lazy,Suspense} from "react";
+import React, {lazy,Suspense, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -9,25 +9,30 @@ import Cart from "./components/pages/Cart";
 import ErrorPage from "./components/pages/ErrorPage";
 import RestaurantMenu from "./components/pages/RestaurantMenu";
 import LoginPage from "./components/authentication/LoginPage";
-// import GroceryList from "./components/grocery/Grocery";
-
-
-// Chunking
-// Code Splitting
-// Lazy Loading
-// on demand loading
+import UserContext from "./utils/UserContext";
 
 const GroceryList = lazy(()=> import("./components/grocery/Grocery"));
+
+
  
 const AppLayout = () => {
+  const [userName,setUserName] = useState();
+useEffect(()=>{
+  const data = {
+    name: "Peter Parker",
+  };
+
+  setUserName(data.name);
+
+},[]);
   return (
+    <UserContext.Provider value={{loggedInUser: userName,setUserName}}>
     <div className="app">
       <Header />
-      {/* <Body /> */}
-{/* according to the children route it use the different component, So this is the beuty of the outlet in react-router-dom. */}
       <Outlet/>
       
     </div>
+    </UserContext.Provider>
   );
 };
 

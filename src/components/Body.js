@@ -1,8 +1,9 @@
 import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
-import { useState,useEffect } from "react";
+import { useState,useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 const Body = () => {
 
   // state variable - super powerful variable..
@@ -60,6 +61,8 @@ const Body = () => {
   if(onlineStatus === false){
     return <h1>Offline...</h1>
   }
+
+  const {setUserName,loggedInUser} = useContext(UserContext);
  
 
   return listOfRestaurants.length === 0 ?
@@ -94,6 +97,14 @@ const Body = () => {
               setSearchRestaurants(searchData);
              
           }}>Search</button>
+        </div>
+        <div className="search m-4 p-4">
+          <label>UserName: </label>
+          <input
+            className="border border-black"
+            value={loggedInUser} 
+            onChange={(e) => setUserName(e.target.value)}
+            />
         </div>
 
 

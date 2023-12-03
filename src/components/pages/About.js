@@ -1,5 +1,6 @@
 import User from "./User";
 import React,{Component} from "react";
+import UserClass from './UserClass';
 
 class About extends Component{
     constructor(props){
@@ -13,7 +14,9 @@ class About extends Component{
         return(
             <div className="about-card">
             
-            <User name={"Kushal Pratap Singh (function)"}/>
+            <UserClass/>
+            
+            {/* <User name={"Kushal Pratap Singh (function)"}/> */}
            
         </div>
         );

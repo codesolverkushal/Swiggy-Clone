@@ -1,26 +1,25 @@
-import { useEffect, useState } from "react";
+import { useState,useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { NavLink } from "react-router-dom";
 import useOnlineStatus from './../utils/useOnlineStatus';
+import  UserContext  from "../utils/UserContext"
 const Header = () => {
   // const btnName = "Login";
   const [btnNameReact,setBtnNameReact] = useState("Login");
   const onlineStatus = useOnlineStatus();
-  console.log("Header Render");
+ 
+  const {loggedInUser} = useContext(UserContext)
 
   // if no dependency array => useEffect is called on every render.
   // if dependency array is empty = [] => useEffect is called on initial render(Just Once).
   // if dependency array has btnNameReact => useEffect is called everytime when btnNameReact is updated. 
-  useEffect(()=>{
-    console.log("useEffect Called");
-  },[btnNameReact])
-
   
 
   
   return (   
-    <div className="flex justify-between bg-pink-200 shadow-lg sm:bg-yellow-200 lg:bg-pink-200 mb-5">    
-    <div className="logo">
+    <div className="sticky top-0 left-0 right-0 z-50 bg-pink-200 shadow-lg sm:bg-yellow-200 lg:bg-pink-200 mb-5">    
+    <div className="flex justify-between">
+     <div className="logo">
           <NavLink to="/"><img className="w-28 ml-4 rounded-full" src={LOGO_URL} alt="Swiggy Logo" /></NavLink>
       </div>
       <div className="flex items-center">
@@ -33,7 +32,7 @@ const Header = () => {
             <li className="px-4"><NavLink to="/cart">Cart</NavLink></li>
             <button className="bg-blue-500 text-white hover:bg-blue-700 hover:text-white px-2 rounded"
                     onClick={()=>{
-                      btnNameReact === "Login" ? setBtnNameReact("Logout") : setBtnNameReact("Login");
+                      btnNameReact === "Login" ? setBtnNameReact(loggedInUser) : setBtnNameReact("Login");
                     }}
                     style={{ backgroundColor: btnNameReact === "Login" ? "green" : "red" }}
                   >
@@ -41,6 +40,7 @@ const Header = () => {
                    
             </button>
         </ul>
+        </div>
       </div>
     </div>
   );
