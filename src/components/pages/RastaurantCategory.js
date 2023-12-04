@@ -3,12 +3,13 @@ import ItemList from "./ItemList";
 
 const RestaurantCategory = ({data,showItems,setShowIndex})=>{
 
-    const [show,setShow] = useState(false);
+  const [drop,setDrop] = useState(false);
 
 
     const handleClick = ()=>{
         setShowIndex();
-        setShow(!show);
+        setDrop(!drop)
+       
     }
 
     
@@ -20,13 +21,15 @@ const RestaurantCategory = ({data,showItems,setShowIndex})=>{
                     
                         <span className="font-bold text-200">{data.title} ({data.itemCards.length})</span>
                         {
-                           (show && showItems) ? <span>⬆️</span> : <span>⬇️</span>
+                           (drop && showItems) ? <span>⬆️</span> : <span>⬇️</span>
                         }
+                           
+                        
                         
         
                 </div>
 
-                { (show && showItems) && <ItemList items = {data.itemCards}/>}
+                {(drop && showItems) && <ItemList items = {data.itemCards}/>}
 
             </div>
             {/* Accordian body */}
