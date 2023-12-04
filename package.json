@@ -4,8 +4,9 @@
   "description": "This is a Masterclass of React",
   "scripts": {
     "start": "parcel index.html",
-    "test": "parcel build -D index.html"
-  },
+    "build": "parcel build index.html",
+    "test": "parcel build -D index.html" 
+   },
   "keywords": [
     "react",
     "codesolverkushal"
