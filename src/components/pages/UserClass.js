@@ -1,91 +1,91 @@
-import React, {useContext} from "react";
-import UserContext from "../../utils/UserContext"
-class UserClass extends React.Component{
+// import React, {useContext} from "react";
+// import UserContext from "../../utils/UserContext"
+// class UserClass extends React.Component{
    
-    constructor(props)
-    {
-        super(props);
+//     constructor(props)
+//     {
+//         super(props);
     
 
-        this.state = {
-            userInfo:{
-                name:"Dummy Name",
-                location:"Default Location",
-            }
-        }
+//         this.state = {
+//             userInfo:{
+//                 name:"Dummy Name",
+//                 location:"Default Location",
+//             }
+//         }
 
-        console.log("Child Constructor");
-    }
+//         console.log("Child Constructor");
+//     }
 
-    async componentDidMount(){
-        console.log("Child Component Did Mount");
+//     async componentDidMount(){
+//         console.log("Child Component Did Mount");
 
-        const data = await fetch("https://api.github.com/users/codesolverkushal");
-        const json = await data.json();
+//         const data = await fetch("https://api.github.com/users/codesolverkushal");
+//         const json = await data.json();
         
         
-        this.setState({
-            userInfo: json,
-        });
+//         this.setState({
+//             userInfo: json,
+//         });
         
-        console.log(json);
-    }
+//         console.log(json);
+//     }
 
-    componentDidUpdate(){
-        console.log("Component Did Update");
-    }
+//     componentDidUpdate(){
+//         console.log("Component Did Update");
+//     }
 
-    componentWillUnmount(){
-        console.log("Component will unmount");
-    }
+//     componentWillUnmount(){
+//         console.log("Component will unmount");
+//     }
     
-    render(){
+//     render(){
 
-        const {name,location,bio,avatar_url} = this.state.userInfo;
+//         const {name,location,bio,avatar_url} = this.state.userInfo;
         
-        console.log("Child Render");
+//         console.log("Child Render");
 
-        return(
-            <div className="user-card">
+//         return(
+//             <div className="user-card">
             
-            <div>
-                LoggedIn User 
-                <UserContext.Consumer>
-                  {({loggedInUser}) => <h1 className="font-bold text-2xl">{loggedInUser}</h1>}
-                </UserContext.Consumer>
-            </div>
-        <img className="githubAvar" src={avatar_url} alt="" />
-            <h1>Name: {name} </h1>
-            <h2>Location: {location} </h2>
-            <h2>{bio}</h2>
-            <h2>email: mohitsinghkpsc@gmail.com</h2>
+//             <div>
+//                 LoggedIn User 
+//                 <UserContext.Consumer>
+//                   {({loggedInUser}) => <h1 className="font-bold text-2xl">{loggedInUser}</h1>}
+//                 </UserContext.Consumer>
+//             </div>
+//         <img className="githubAvar" src={avatar_url} alt="" />
+//             <h1>Name: {name} </h1>
+//             <h2>Location: {location} </h2>
+//             <h2>{bio}</h2>
+//             <h2>email: mohitsinghkpsc@gmail.com</h2>
             
-        </div>      
-      );
-    };
-}
+//         </div>      
+//       );
+//     };
+// }
 
-export default UserClass;
-
-
+// export default UserClass;
 
 
-/****
- * --- Mouting ----
- * 
- * 
- * Constructor (dummy)
- * Render (dummy)
- * <HTML Dummy>
- * componentDidMount
- * 
- * API Call
- * this.setState -> state variable is updated
- * 
- * --- Update
- * 
- * render (API Data)
- * <HTML (New API data)>
- * 
- * component Did Update.
- */ 
+
+
+// /****
+//  * --- Mouting ----
+//  * 
+//  * 
+//  * Constructor (dummy)
+//  * Render (dummy)
+//  * <HTML Dummy>
+//  * componentDidMount
+//  * 
+//  * API Call
+//  * this.setState -> state variable is updated
+//  * 
+//  * --- Update
+//  * 
+//  * render (API Data)
+//  * <HTML (New API data)>
+//  * 
+//  * component Did Update.
+//  */ 
