@@ -10,6 +10,9 @@ import ErrorPage from "./components/pages/ErrorPage";
 import RestaurantMenu from "./components/pages/RestaurantMenu";
 import LoginPage from "./components/authentication/LoginPage";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Main from "./components/Main"
 
 const GroceryList = lazy(()=> import("./components/grocery/Grocery"));
 
@@ -19,20 +22,24 @@ const AppLayout = () => {
   const [userName,setUserName] = useState();
 useEffect(()=>{
   const data = {
-    name: "Peter Parker",
+    name: "Kushal",
   };
 
   setUserName(data.name);
 
 },[]);
+
+
   return (
-    <UserContext.Provider value={{loggedInUser: userName,setUserName}}>
-    <div className="app">
-      <Header />
-      <Outlet/>
-      
-    </div>
-    </UserContext.Provider>
+      <Provider store={appStore}>
+        <UserContext.Provider value={{loggedInUser: userName,setUserName}}>
+        <div className="app">
+          <Header />
+          <Outlet/>
+          
+        </div>
+        </UserContext.Provider>
+      </Provider>
   );
 };
 
@@ -42,7 +49,11 @@ const appRouter = createBrowserRouter([
     element :<AppLayout/>,
     children:[
       {
-        path:"/",
+         path:"/",
+         element:<Main/>
+      },
+      {
+        path:"/home",
         element:<Body/>
       },
       {

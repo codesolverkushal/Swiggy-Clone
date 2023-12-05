@@ -1,9 +1,8 @@
 import RestaurantCard, {withPromotedLabel} from "./RestaurantCard";
-import { useState,useEffect, useContext } from "react";
+import { useState,useEffect} from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import UserContext from "../utils/UserContext";
 const Body = () => {
 
   // state variable - super powerful variable..
@@ -62,18 +61,27 @@ const Body = () => {
     return <h1>Offline...</h1>
   }
 
-  const {setUserName,loggedInUser} = useContext(UserContext);
+
+  const backgroundImageStyle = {
+    backgroundImage: "url('https://images.pexels.com/photos/1079020/pexels-photo-1079020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')", // Placeholder image URL
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    
+    // filter: "brightness(50%)", // Adjust the brightness as needed
+  };
+
+
  
 
   return listOfRestaurants.length === 0 ?
   ( <Shimmer/>
   ) : (
-    <div className="body">
+    <div className="body" style={backgroundImageStyle}>
       <div className="filter flex items-center justify-center">
 
       <div className="search m-4 p-4 flex items-center">
         <button className="px-4 py-2 bg-gray-100 rounded-lg" onClick={() => {
-          const filteredList =searchRestaurants.filter(res=>res.info.avgRating>4.4);
+          const filteredList =searchRestaurants.filter(res=>res.info.avgRating>4);
           // console.log(filteredList);
           if(filteredList.length == 0){
             setSearchRestaurants(filteredList);
@@ -97,14 +105,6 @@ const Body = () => {
               setSearchRestaurants(searchData);
              
           }}>Search</button>
-        </div>
-        <div className="search m-4 p-4">
-          <label>UserName: </label>
-          <input
-            className="border border-black"
-            value={loggedInUser} 
-            onChange={(e) => setUserName(e.target.value)}
-            />
         </div>
 
 
