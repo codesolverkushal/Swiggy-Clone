@@ -34,6 +34,16 @@ const Header = () => {
     setShowMenu(!showMenu);
   };
 
+  useEffect(()=>{
+    const closeMenuOnResize = () => {
+      
+        setShowMenu(true);
+      
+    };
+
+    window.addEventListener("resize", closeMenuOnResize);
+  })
+
   
  
   

@@ -11,14 +11,23 @@ const ContactUs = () => {
     setFeedbackSubmitted(true);
   };
 
+  
+  const backgroundImageStyle = {
+    backgroundImage:
+      "url('https://img.freepik.com/free-vector/realistic-handset-concept_1284-34781.jpg?size=626&ext=jpg&ga=GA1.1.1651881561.1696657168&semt=ais')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
+
   return (
+    <div className='h-[84.6vh] flex justify-center items-center' style={backgroundImageStyle}>
     <div className={`contact-us-container ${feedbackSubmitted ? 'feedback-submitted' : ''}`}>
       {feedbackSubmitted ? (
         <div className="thanks-message">
           <h2>Thanks for your valuable feedback!</h2>
         </div>
       ) : (
-        <>
+        <div>
           <h2>Contact Us</h2>
           <p>We value your feedback. Reach out to us using the contact information below:</p>
 
@@ -36,9 +45,6 @@ const ContactUs = () => {
           <div className="contact-form">
             <h3>Send us a Message</h3>
             <form onSubmit={handleSubmit}>
-              <label htmlFor="name">Your Name:</label>
-              <input type="text" id="name" name="name" required />
-
               <label htmlFor="email">Your Email:</label>
               <input type="email" id="email" name="email" required />
 
@@ -48,8 +54,9 @@ const ContactUs = () => {
               <button className='contactUsButton' type="submit">Send Message</button>
             </form>
           </div>
-        </>
+        </div>
       )}
+    </div>
     </div>
   );
 };

@@ -1,12 +1,12 @@
 /* ContactUs.css */
 
 .contact-us-container {
-
+    align-self: center;
     max-width: 500px;
-    margin: 0 auto;
+    margin: auto; 
     padding: 40px;
     text-align: center;
-    background-color: #f8f8f8;
+    background-color: #cf9a9a;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
