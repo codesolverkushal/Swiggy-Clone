@@ -7,6 +7,7 @@ const ErrorPage = () => {
   return (
     <div style={styles.container}>
       <h1 style={styles.heading}>Oops! Something went wrong.</h1>
+      <h1>Please on your desktop Mode from setting...</h1>
       <h2 style={styles.paragraph}>
         {err.status}, {err.statusText}
       </h2>

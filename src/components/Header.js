@@ -5,6 +5,7 @@ import useOnlineStatus from './../utils/useOnlineStatus';
 import  UserContext  from "../utils/UserContext"
 import { useSelector } from "react-redux";
 import { FaShoppingCart } from 'react-icons/fa';
+
 const Header = () => {
 
   const [btnNameReact,setBtnNameReact] = useState("Login");
@@ -34,27 +35,7 @@ const Header = () => {
   };
 
   
-    useEffect(()=>{
-
-    
-      
-      const closeMenuOnResize = () => {
-      if (window.innerWidth > 640) {
-        setShowMenu(false);
-      }
-    };
-
-    window.addEventListener("resize", closeMenuOnResize);
-
-    return () => {
-      window.removeEventListener("resize", closeMenuOnResize);
-  }
-})
-  
-
-  
-  
-
+ 
   
   return (   
     <div className="sticky top-0 left-0 right-0 z-50 bg-green-300 shadow-lg sm:bg-yellow-200 lg:bg-green-200" style={backgroundImageStyle}>   
