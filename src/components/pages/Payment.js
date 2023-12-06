@@ -30,9 +30,14 @@ const PaymentGateway = () => {
       <div className="bg-white p-8 rounded shadow-md w-96">
         <h2 className="text-2xl font-semibold mb-4">Payment Details</h2>
         {paymentConfirmed ? (
-          <h1 className="text-green-500 text-center font-bold">
-            Your order will be delivered soon!
+          <div>
+          <h1 className="text-green-500 text-center text-2xl font-extrabold">
+            Payment Successful!
           </h1>
+          <h1 className="text-green-500 text-center font-bold">
+            Your order will be delivered wihtin 30 minutes!
+          </h1>
+          </div>
         ) : (
           <form>
             <div className="mb-4">

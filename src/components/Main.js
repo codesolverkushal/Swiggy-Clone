@@ -8,7 +8,7 @@ const Main = () => {
   const {setUserName,loggedInUser} = useContext(UserContext);
 
   return (
-    <div className="relative flex flex-col items-center justify-center  h-[85.7vh] h-screen bg-gradient-to-b from-blue-400 to-blue-600 ">
+    <div className="flex flex-col items-center justify-center  h-[84.6vh]  bg-gradient-to-b from-blue-400 to-blue-600 ">
       <img
         src="https://img.freepik.com/free-photo/delicious-indian-food-tray_23-2148723505.jpg?size=626&ext=jpg" // Replace with your actual image source
         alt="Background Image"
