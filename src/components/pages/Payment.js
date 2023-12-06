@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { clearCart } from "../../utils/cartSlice";
 
 const PaymentGateway = () => {
   const [cardNumber, setCardNumber] = useState("");
@@ -8,12 +9,12 @@ const PaymentGateway = () => {
   const [cvv, setCVV] = useState("");
   const [paymentConfirmed, setPaymentConfirmed] = useState(false);
 
-  // const cartItems = useSelector((store) => store.cart.items);
-  // const dispatch = useDispatch();
+  const cartItems = useSelector((store) => store.cart.items);
+  const dispatch = useDispatch();
 
-  // const handleClearCart = () => {
-  //   dispatch(clearCart());
-  // };
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
 
   const handlePayment = () => {
    
@@ -83,7 +84,7 @@ const PaymentGateway = () => {
               className="bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600"
               onClick={() => {
                 handlePayment();
-                // handleClearCart();
+                handleClearCart();
               }}
             >
               Pay Now
