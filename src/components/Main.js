@@ -2,38 +2,60 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import UserContext from "../utils/UserContext";
+import "./Main.css"
 
 const Main = () => {
+
+
+  const backgroundImageStyle = {
+    backgroundImage:
+      "url('https://images.pexels.com/photos/372882/pexels-photo-372882.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
 
   const {setUserName,loggedInUser} = useContext(UserContext);
 
   return (
-    <div className="flex flex-col items-center justify-center  h-[84.6vh]  bg-gradient-to-b from-blue-400 to-blue-600 ">
-      <img
-        src="https://img.freepik.com/free-photo/delicious-indian-food-tray_23-2148723505.jpg?size=626&ext=jpg" // Replace with your actual image source
-        alt="Background Image"
-        className="object-cover w-full h-full absolute top-0 left-0 filter brightness-50"
-      />
-      <div className="relative z-10 p-8 bg-white bg-opacity-90 backdrop-blur-md rounded-md text-center">
-        <h1 className="text-4xl font-bold mb-6 text-gray-800">Welcome to My App</h1>
-        <div>
-        <div className="search m-4 p-4">
-          <label>UserName: </label>
-          <input
-            className="border border-black"
-            value={loggedInUser} 
-            onChange={(e) => setUserName(e.target.value)}
-            />
+    <div className="text-center">
+    <div className=" h-[84.6vh] bg-gradient-to-b from-blue-400 to-blue-600" style={backgroundImageStyle}>
+      <div className="hero-container sm:flex sm:items-center sm:justify-center">
+         <div className="w-9/12">
+         <img className="rounded-lg mb-4 sm:mb-0" src="https://media.tenor.com/_txX8URCZP8AAAAi/foodpanda-food.gif" alt="hero" />
+
+         </div>
+          
+
+            <div>
+            <p className="hero-text text-white font-extrabold text-4xl sm:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight tracking-wide hidden sm:block text-center">
+              Welcome to <span className="underline">Kp-food</span>, where every dish is a celebration of flavors and a journey through culinary delight.
+            </p>
+            </div>
         </div>
-        <NavLink to="/Home">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">
-            Login
-          </button>
-        </NavLink>
+        <div className="lg:flex justify-between p-4">
+        <div className="sm:flex sm:justify-center sm:items-center">
+          <NavLink to="/home">
+            <button className="button primary-blue text-white font-extrabold text-3xl bg-blue-500 px-4 py-2 sm:px-1 rounded-full lg:hidden">
+              Eat Now
+            </button>
+          </NavLink>
+        </div>
+        <div className="">
+          <NavLink to="/home">
+            <button className="button primary-blue text-white font-extrabold text-3xl bg-blue-500 p-3 sm:px-1 rounded-full hidden lg:inline-block shadow-md">
+              Eat Now
+            </button>
+          </NavLink>
+        </div>
       </div>
-      </div>
+
+
+    </div>
     </div>
   );
 };
 
 export default Main;
+
+
+

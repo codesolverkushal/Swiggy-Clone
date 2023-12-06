@@ -22,7 +22,7 @@ const Header = () => {
   console.log(cart);
 
   const backgroundImageStyle = {
-    backgroundImage: "url('https://images.pexels.com/photos/616412/pexels-photo-616412.jpeg?auto=compress&cs=tinysrgb&w=800')", // Placeholder image URL
+    backgroundImage: "url('https://img.freepik.com/premium-photo/background-cooking-black-wooden-background-top-view-free-space-your-text_187166-5650.jpg?size=626&ext=jpg&ga=GA1.1.1651881561.1696657168&semt=ais')", // Placeholder image URL
     backgroundSize: "cover",
     backgroundPosition: "center",
     
@@ -33,8 +33,12 @@ const Header = () => {
     setShowMenu(!showMenu);
   };
 
-  useEffect(() => {
-    const closeMenuOnResize = () => {
+  
+    useEffect(()=>{
+
+    
+      
+      const closeMenuOnResize = () => {
       if (window.innerWidth > 640) {
         setShowMenu(false);
       }
@@ -44,8 +48,9 @@ const Header = () => {
 
     return () => {
       window.removeEventListener("resize", closeMenuOnResize);
-    };
-  }, []);
+  }
+})
+  
 
   
   
@@ -53,8 +58,8 @@ const Header = () => {
   
   return (   
     <div className="sticky top-0 left-0 right-0 z-50 bg-green-300 shadow-lg sm:bg-yellow-200 lg:bg-green-200" style={backgroundImageStyle}>   
-      <div className="flex ml-4">
-      <button className="sm:hidden font-bold text-2xl" onClick={toggleMenu}>
+      <div className="flex">
+      <button className="sm:hidden font-bold text-3xl text-white" onClick={toggleMenu}>
             ☰
           </button>
      </div> 
@@ -63,8 +68,8 @@ const Header = () => {
           <NavLink to="/"><img className="w-28 ml-4 rounded-full" src={LOGO_URL} alt="Swiggy Logo" /></NavLink>
       </div>
       <div className="flex items-center">
-        <ul className={`flex flex-col sm:flex-row p-4 font-bold text-lg mt-2 sm:mt-5 ${showMenu ? "block" : "hidden"} text-center items-center`}>
-            <li className="px-4">Online Status: {onlineStatus ? "✅" : "🔴"}</li>
+        <ul className={`flex flex-col sm:flex-row p-4 font-bold text-lg mt-2 sm:mt-2 ${showMenu ? "block" : "hidden"} text-center items-center text-white`}>
+            <li className="px-4 hidden sm:block">Online Status: {onlineStatus ? "✅" : "🔴"}</li>
             <li className="px-4"><NavLink to="/home">Home</NavLink></li>
             <li className="px-4"><NavLink to="/about">About</NavLink></li>
             <li className="px-4"><NavLink to="/contact">Contact Us</NavLink></li>
