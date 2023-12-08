@@ -17,7 +17,7 @@ const Main = () => {
   return (
     <div className="text-center">
       <div
-        className=" h-[84.6vh] bg-gradient-to-b from-blue-400 to-blue-600"
+        className=" h-[84.8vh] bg-gradient-to-b from-blue-400 to-blue-600"
         style={backgroundImageStyle}
       >
         <div className="hero-container sm:flex sm:items-center sm:justify-center">

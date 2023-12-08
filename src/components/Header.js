@@ -32,20 +32,7 @@ const Header = () => {
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
-  };
-
-  useEffect(()=>{
-    const closeMenuOnResize = () => {
-      
-        setShowMenu(true);
-      
-    };
-
-    window.addEventListener("resize", closeMenuOnResize);
-  })
-
-  
- 
+  }; 
   
   return (   
     <div className="sticky top-0 left-0 right-0 z-50 bg-green-300 shadow-lg sm:bg-yellow-200 lg:bg-green-200" style={backgroundImageStyle}>   

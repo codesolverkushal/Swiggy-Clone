@@ -10,13 +10,14 @@ const RestaurantCategory = ({data,showItems,setShowIndex})=>{
         setShowIndex();
         setDrop(!drop)
        
-    }
+    }   
 
     
     return (
     <div>
              {/* Header */}
-            <div className="w-6/12 mx-auto my-4 bg-gray-50 shadow-lg p-4">
+             <div className="flex justify-center items-center" >
+            <div className="w-6/12  my-4 bg-gray-50 shadow-lg p-4">
                 <div className="flex justify-between cursor-pointer" onClick={handleClick}>
                     
                         <span className="font-bold text-200">{data.title} ({data.itemCards.length})</span>
@@ -34,7 +35,7 @@ const RestaurantCategory = ({data,showItems,setShowIndex})=>{
             </div>
             {/* Accordian body */}
 
-          
+            </div>  
     </div>
     )
 }

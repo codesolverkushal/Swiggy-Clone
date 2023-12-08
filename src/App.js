@@ -12,7 +12,8 @@ import LoginPage from "./components/authentication/LoginPage";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
-import Main from "./components/Main"
+import Main from "./components/Main";
+import Footer from "../src/components/pages/Footer";
 
 const GroceryList = lazy(()=> import("./components/grocery/Grocery"));
 
@@ -36,6 +37,7 @@ useEffect(()=>{
         <div className="app">
           <Header />
           <Outlet/>
+          <Footer/>
           
         </div>
         </UserContext.Provider>

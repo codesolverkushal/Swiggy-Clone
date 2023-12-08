@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { clearCart } from "../../utils/cartSlice";
-import ItemList from "./ItemList";
+import CartItemList from "./CartItemList";
 import { useDispatch } from "react-redux";
 import Payment from "./Payment";
 
@@ -22,6 +22,7 @@ const Cart = () => {
       setShowPayment(true); 
     }, 2000); 
   };
+
 
   return (
     <div className="text-center m-4 p-4">
@@ -44,7 +45,7 @@ const Cart = () => {
             >
               Proceed to Pay
             </button>
-            <ItemList items={cartItems} />
+            <CartItemList items={cartItems} />
 
           </>
         )}
