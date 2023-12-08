@@ -1,6 +1,7 @@
 // import { useDispatch } from "react-redux";
 import { CDN_URL } from "../../utils/constants";
 import { addItem,removeItem } from "../../utils/cartSlice";
+import { addPrice,removePrice } from "../../utils/priceSlice";
 import { useDispatch } from "react-redux";
 
 const ItemList = ({ items }) => {
@@ -8,10 +9,16 @@ const ItemList = ({ items }) => {
   const dispatch = useDispatch();
 
   const handleAddItem = (item) =>{
-    // Dispatch and action
+    dispatch(addItem(item));    
+  }
 
-    dispatch(addItem(item));
+  const handleAddPrice = (price)=>
+  {
+    dispatch(addPrice(price))
+  }
 
+  const handleRemovePrice = (price) =>{
+    dispatch(removePrice(price));
   }
 
   const handleRemoveItem = (item)=>{
@@ -31,8 +38,14 @@ const ItemList = ({ items }) => {
           </div>
           <div className="w-3/12">
            <div className="absolute">
-            <button onClick={()=>handleAddItem(item)} className="p-1 rounded-lg bg-black text-white shadow-lg"> Add More +    </button>   
-            <button onClick={()=>handleRemoveItem()} className="p-1 rounded-lg bg-red-700 text-white shadow-lg right-0"> remove -</button>   
+            <button onClick ={() => {
+                handleAddItem(item);
+                handleAddPrice(item.card.info.price ? item.card.info.price / 100 : item.card.info.defaultPrice/100);
+              }} className="p-1 rounded-lg bg-black text-white shadow-lg"> Add More +    </button>   
+            <button onClick={()=>{
+              handleRemoveItem();
+              handleRemovePrice(item.card.info.price ? item.card.info.price / 100 : item.card.info.defaultPrice/100);
+            }} className="p-1 rounded-lg bg-red-700 text-white shadow-lg right-0"> remove -</button>   
            </div> 
             <img className="rounded-lg"  src={CDN_URL + item.card.info.imageId} alt="" />  
           </div>

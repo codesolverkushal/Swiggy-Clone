@@ -97,7 +97,7 @@ const Body = () => {
 
         </div>
         <div className="search m-4 p-4">
-          <input type="text" className="border border-solid border-black rounded-lg p-1 bg-slate-400 text-white" value={searchText} onChange={(e)=>setSearchText(e.target.value)} />
+          <input type="text" className="border border-solid border-black rounded-lg p-1 bg-slate-400 text-white" placeholder="KFC" value={searchText} onChange={(e)=>setSearchText(e.target.value)} />
           <button className="px-4 py-2 bg-green-200 m-4 rounded-lg"
           onClick={()=>{
               // console.log(searchText);
