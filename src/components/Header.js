@@ -71,6 +71,8 @@ const Header = () => {
             <button className="bg-blue-500 text-white hover:bg-blue-700 hover:text-white px-2 m-2 rounded"
                     onClick={()=>{
                       btnNameReact === "Login" ? setBtnNameReact(loggedInUser) : setBtnNameReact("Login");
+                   
+                      console.log(btnNameReact);
                     }}
                     style={{ backgroundColor: btnNameReact === "Login" ? "green" : "red" }}
                   >

@@ -5,7 +5,7 @@ const StarRating = ({ rating }) => {
   const MAX_STARS = 5;
   const filledStars = Math.floor(rating);
   const hasHalfStar = rating % 1 !== 0;
-  const isHighRating = rating > 4.1;
+  const isHighRating = rating > 4.2;
 
   const getStarColor = () => {
     return isHighRating ?  'text-green-500' : 'text-red-500';
@@ -30,7 +30,7 @@ const StarRating = ({ rating }) => {
   return (
     <div className="flex items-center">
       {renderStars()}
-      <div className="bg-gray-200 px-4 py-2 rounded-md ml-4">{rating}</div>
+      <div className={`px-4 py-2 rounded-full ml-4 ${rating > 4.2 ? 'bg-green-500' : 'bg-red-200'}`}>{rating}</div>
     </div>
   );
   
