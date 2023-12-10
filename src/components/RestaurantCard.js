@@ -1,4 +1,6 @@
 import { CDN_URL } from "../utils/constants";
+import StarRating from "../utils/StarRating";
+
 const RestaurantCard = ({
   name,
   cuisines,
@@ -7,6 +9,8 @@ const RestaurantCard = ({
   costForTwo,
   totalRatingsString,
   }) => {
+
+
   return (
     <div
       className="m-4 p-4 w-[260px] rounded-lg bg-gray-100 hover:bg-gray-200"
@@ -18,11 +22,11 @@ const RestaurantCard = ({
         src={CDN_URL + cloudinaryImageId}
         alt="reslogo"
       />
-      <h3 className="font-bold py-2">{name.slice(0, 16)}</h3>
-      <h4> {cuisines.slice(0, 2).join(", ")} </h4>
-      <h4>{avgRating}</h4>
-      <h4>{costForTwo}</h4>
-      <h4>{totalRatingsString}</h4>
+      <h3 className="font-extrabold text-lg py-2 text-gray-600">{name.slice(0, 16)}</h3>
+      <h4 className="font-bold text-gray-600"> {cuisines.slice(0, 2).join(", ")} </h4>
+      <StarRating rating = {avgRating}/>
+      <h4 className="text-gray-600">{costForTwo}</h4>
+      <h4 className="text-gray-600">{totalRatingsString}</h4>
     </div>
   );
 };

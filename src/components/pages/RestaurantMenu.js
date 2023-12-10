@@ -3,6 +3,7 @@ import MenuShi from "../MenuShimmer/MenuShi";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from './../../utils/useRestaurantMenu';
 import RestaurantCategory from "./RastaurantCategory";
+import { FaStar } from 'react-icons/fa';
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -16,7 +17,8 @@ const RestaurantMenu = () => {
     return <MenuShi/>;
   }
 
-  const { name, cuisines, costForTwoMessage } = resInfo?.cards[0]?.card?.card?.info;
+  const { name,avgRating, cuisines, costForTwoMessage } = resInfo?.cards[0]?.card?.card?.info;
+  
    
   const { itemCards } = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
@@ -33,9 +35,18 @@ const RestaurantMenu = () => {
   return (
     <div style={backgroundImageStyle}>
     <div className="text-center">
-      
-      <h1 className="text-xl text-white font-bold ">{name}</h1>      
-      <p className="font-bold text-gray-500">{cuisines.join(",")} - {costForTwoMessage}</p>
+      <div className="flex justify-center mb-6">   
+      <div className="mx-5 bg-black p-4 rounded-md flex items-center">
+  
+  <h1 className="text-2xl text-white font-bold">{name}</h1>  
+</div>
+      <div className="mx-5 bg-green-200 p-4 rounded-md flex items-center">
+
+          <span className="text-green-500 mr-2"><FaStar/></span>
+          <h1 className="text-2xl text-black font-bold">{avgRating}</h1>  
+        </div> 
+     </div>
+      <p className="font-bold text-gray-300">{cuisines.join(",")} - {costForTwoMessage}</p>
 
       {/* Categories accordian */}
 
