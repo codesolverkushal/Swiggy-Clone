@@ -40,7 +40,7 @@ const RestaurantMenu = () => {
   
   <h1 className="text-2xl text-white font-bold">{name}</h1>  
 </div>
-      <div className="mx-5 bg-green-200 p-4 rounded-md flex items-center">
+      <div className="mx-5 bg-green-200 p-4 rounded-full flex items-center">
 
           <span className="text-green-500 mr-2"><FaStar/></span>
           <h1 className="text-2xl text-black font-bold">{avgRating}</h1>  
