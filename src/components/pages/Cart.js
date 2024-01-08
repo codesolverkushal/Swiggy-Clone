@@ -40,7 +40,7 @@ const Cart = () => {
 
 
   return (
-    <div className="text-center p-4 h-[84.7vh]" style={backgroundImageStyle}>
+    <div className="text-center p-4 min-h-[70vh]" style={backgroundImageStyle}>
       <div className="w-6/12 m-auto">
         <button
           className="p-2 m-2 bg-black text-white rounded-lg"
