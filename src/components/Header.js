@@ -9,7 +9,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 const Header = () => {
 
   const [btnNameReact,setBtnNameReact] = useState("Login");
-  const [showMenu, setShowMenu] = useState(true);
+  const [showMenu, setShowMenu] = useState(window.innerWidth > 640);
 
   const onlineStatus = useOnlineStatus();
  
@@ -26,14 +26,24 @@ const Header = () => {
     backgroundImage: "url('https://img.freepik.com/premium-photo/background-cooking-black-wooden-background-top-view-free-space-your-text_187166-5650.jpg?size=626&ext=jpg&ga=GA1.1.1651881561.1696657168&semt=ais')", // Placeholder image URL
     backgroundSize: "cover",
     backgroundPosition: "center",
-    
-    // filter: "brightness(50%)", // Adjust the brightness as needed
   };
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   }; 
-  
+
+  useEffect(() => {
+    const handleResize = () => {
+      setShowMenu(window.innerWidth > 640); 
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); 
+
+
   return (   
     <div className="sticky top-0 left-0 right-0 z-50 bg-green-300 shadow-lg sm:bg-yellow-200 lg:bg-green-200" style={backgroundImageStyle}>   
       <div className="flex">

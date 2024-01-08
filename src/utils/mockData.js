@@ -1,406 +1,224 @@
-const resList = [
-  {
-    "info": {
-        "id": "444074",
-        "name": "Magnolia Bakery",
-        "cloudinaryImageId": "6f0945b8b18d9f4241dd1cd9a70e23d7",
-        "locality": "RMZ Ecoworld",
-        "areaName": "Bellandur",
-        "costForTwo": "₹500 for two",
-        "cuisines": [
-            "Bakery",
-            "Desserts",
-            "Ice Cream"
-        ],
-        "avgRating": 4.5,
-        "feeDetails": {
-            "restaurantId": "444074",
-            "fees": [
-                {
-                    "name": "BASE_DISTANCE",
-                    "fee": 11800
-                },
-                {
-                    "name": "BASE_TIME"
-                },
-                {
-                    "name": "ANCILLARY_SURGE_FEE"
-                }
-            ],
-            "totalFee": 11800
-        },
-        "parentId": "267303",
-        "avgRatingString": "4.5",
-        "totalRatingsString": "5K+",
-        "sla": {
-            "deliveryTime": 30,
-            "lastMileTravel": 9.1,
-            "serviceability": "SERVICEABLE",
-            "slaString": "30 mins",
-            "lastMileTravelString": "9.1 km",
-            "iconType": "ICON_TYPE_EMPTY"
-        },
-        "availability": {
-            "nextCloseTime": "2023-11-11 00:30:00",
-            "opened": true
-        },
-        "badges": {
-            "imageBadges": [
-                {
-                    "imageId": "newg.png",
-                    "description": "Gourmet"
-                }
-            ]
-        },
-        "isOpen": true,
-        "aggregatedDiscountInfoV2": {},
-        "type": "F",
-        "badgesV2": {
-            "entityBadges": {
-                "imageBased": {
-                    "badgeObject": [
-                        {
-                            "attributes": {
-                                "description": "Gourmet",
-                                "imageId": "newg.png"
-                            }
-                        }
-                    ]
-                },
-                "textBased": {},
-                "textExtendedBadges": {}
-            }
-        },
-        "differentiatedUi": {
-            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-            "differentiatedUiMediaDetails": {
-                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                "lottie": {},
-                "video": {}
-            }
-        },
-        "reviewsSummary": {},
-        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-        "restaurantOfferPresentationInfo": {}
+const restaurantDataArray = [
+    {
+      id: "65797",
+      name: "Leon's - Burgers & Wings (Leon Grill)",
+      imageId: "b2edbc28b7b8219d6e0a9c049ce06658",
+      locality: "Koramangala",
+      areaName: "Koramangala",
+      costForTwo: "₹300 for two",
+      cuisines: ["American", "Snacks", "Turkish", "Portuguese", "Continental"],
+      avgRating: 4.4,
+      totalRatingsString: "10K+",
+      deliveryTime: 28,
+      lastMileTravel: 6.4,
+      serviceability: "SERVICEABLE",
+      isOpen: true,
+      discountHeader: "ITEMS",
+      discountSubHeader: "AT ₹179",
+      closingTime: "2024-01-09 04:00:00",
+      link: "https://www.swiggy.com/restaurants/leons-burgers-and-wings-leon-grill-koramangala-bangalore-65797",
     },
-    "analytics": {},
-    "cta": {
-        "link": "https://www.swiggy.com/restaurants/magnolia-bakery-rmz-ecoworld-bellandur-bangalore-444074",
-        "type": "WEBLINK"
-    }
-},
-{
-    "info": {
-        "id": "5934",
-        "name": "Burger King",
-        "cloudinaryImageId": "e33e1d3ba7d6b2bb0d45e1001b731fcf",
-        "locality": "Koramangala",
-        "areaName": "Koramangala",
-        "costForTwo": "₹350 for two",
-        "cuisines": [
-            "Burgers",
-            "American"
-        ],
-        "avgRating": 4.2,
-        "feeDetails": {
-            "restaurantId": "5934",
-            "fees": [
-                {
-                    "name": "BASE_TIME"
-                },
-                {
-                    "name": "BASE_DISTANCE",
-                    "fee": 3700
-                },
-                {
-                    "name": "ANCILLARY_SURGE_FEE"
-                }
-            ],
-            "totalFee": 3700
-        },
-        "parentId": "166",
-        "avgRatingString": "4.2",
-        "totalRatingsString": "10K+",
-        "sla": {
-            "deliveryTime": 23,
-            "lastMileTravel": 2.3,
-            "serviceability": "SERVICEABLE",
-            "slaString": "23 mins",
-            "lastMileTravelString": "2.3 km",
-            "iconType": "ICON_TYPE_EMPTY"
-        },
-        "availability": {
-            "nextCloseTime": "2023-11-11 05:00:00",
-            "opened": true
-        },
-        "badges": {},
-        "isOpen": true,
-        "type": "F",
-        "badgesV2": {
-            "entityBadges": {
-                "imageBased": {},
-                "textBased": {},
-                "textExtendedBadges": {}
-            }
-        },
-        "aggregatedDiscountInfoV3": {
-            "header": "ITEMS",
-            "subHeader": "AT ₹129"
-        },
-        "differentiatedUi": {
-            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-            "differentiatedUiMediaDetails": {
-                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                "lottie": {},
-                "video": {}
-            }
-        },
-        "reviewsSummary": {},
-        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-        "restaurantOfferPresentationInfo": {}
+    {
+      id: "5938",
+      name: "Burger King",
+      imageId: "e33e1d3ba7d6b2bb0d45e1001b731fcf",
+      locality: "Tasker Town",
+      areaName: "Shivaji Nagar",
+      costForTwo: "₹350 for two",
+      cuisines: ["Burgers", "American"],
+      avgRating: 4.2,
+      totalRatingsString: "10K+",
+      deliveryTime: 29,
+      lastMileTravel: 2.7,
+      serviceability: "SERVICEABLE",
+      isOpen: true,
+      discountHeader: "ITEMS",
+      discountSubHeader: "AT ₹129",
+      closingTime: "2024-01-09 02:00:00",
+      link: "https://www.swiggy.com/restaurants/burger-king-tasker-town-shivaji-nagar-bangalore-5938",
     },
-    "analytics": {},
-    "cta": {
-        "link": "https://www.swiggy.com/restaurants/burger-king-koramangala-bangalore-5934",
-        "type": "WEBLINK"
-    }
-},
-{
-    "info": {
-        "id": "346",
-        "name": "Momoz",
-        "cloudinaryImageId": "pnlkjsjxqcjgzwwya3fd",
-        "locality": "2nd Stage",
-        "areaName": "BTM Layout",
-        "costForTwo": "₹350 for two",
-        "cuisines": [
-            "Chinese",
-            "Thai",
-            "Seafood",
-            "Asian",
-            "Malaysian"
-        ],
-        "avgRating": 4,
-        "feeDetails": {
-            "restaurantId": "346",
-            "fees": [
-                {
-                    "name": "BASE_TIME"
-                },
-                {
-                    "name": "BASE_DISTANCE",
-                    "fee": 4500
-                },
-                {
-                    "name": "ANCILLARY_SURGE_FEE"
-                }
-            ],
-            "totalFee": 4500
-        },
-        "parentId": "2486",
-        "avgRatingString": "4.0",
-        "totalRatingsString": "10K+",
-        "sla": {
-            "deliveryTime": 30,
-            "lastMileTravel": 3.8,
-            "serviceability": "SERVICEABLE",
-            "slaString": "30 mins",
-            "lastMileTravelString": "3.8 km",
-            "iconType": "ICON_TYPE_EMPTY"
-        },
-        "availability": {
-            "nextCloseTime": "2023-11-11 04:30:00",
-            "opened": true
-        },
-        "badges": {},
-        "isOpen": true,
-        "type": "F",
-        "badgesV2": {
-            "entityBadges": {
-                "imageBased": {},
-                "textBased": {},
-                "textExtendedBadges": {}
-            }
-        },
-        "aggregatedDiscountInfoV3": {
-            "header": "60% OFF",
-            "subHeader": "UPTO ₹120"
-        },
-        "differentiatedUi": {
-            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-            "differentiatedUiMediaDetails": {
-                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                "lottie": {},
-                "video": {}
-            }
-        },
-        "reviewsSummary": {},
-        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-        "restaurantOfferPresentationInfo": {}
+    {
+      id: "59627",
+      name: "La Pino'z Pizza",
+      imageId: "ntjshqsv2k7vxtv7vmib",
+      locality: "Koramangala",
+      areaName: "Koramangala",
+      costForTwo: "₹251 for two",
+      cuisines: ["Pizzas", "Pastas", "Italian", "Desserts", "Beverages"],
+      avgRating: 4.2,
+      totalRatingsString: "10K+",
+      deliveryTime: 32,
+      lastMileTravel: 8,
+      serviceability: "SERVICEABLE",
+      isOpen: true,
+      discountHeader: "₹120 OFF",
+      discountSubHeader: "ABOVE ₹199",
+      discountTag: "FLAT DEAL",
+      closingTime: "2024-01-09 03:00:00",
+      link: "https://www.swiggy.com/restaurants/la-pinoz-pizza-koramangala-bangalore-59627",
     },
-    "analytics": {},
-    "cta": {
-        "link": "https://www.swiggy.com/restaurants/momoz-2nd-stage-btm-layout-bangalore-346",
-        "type": "WEBLINK"
-    }
-},
-{
-    "info": {
-        "id": "65797",
-        "name": "Leon's - Burgers & Wings (Leon Grill)",
-        "cloudinaryImageId": "r4ufflqojich0r29efvc",
-        "locality": "Koramangala",
-        "areaName": "Koramangala",
-        "costForTwo": "₹300 for two",
-        "cuisines": [
-            "American",
-            "Snacks",
-            "Turkish",
-            "Portuguese",
-            "Continental"
-        ],
-        "avgRating": 4.3,
-        "feeDetails": {
-            "restaurantId": "65797",
-            "fees": [
-                {
-                    "name": "BASE_TIME"
-                },
-                {
-                    "name": "BASE_DISTANCE",
-                    "fee": 3700
-                },
-                {
-                    "name": "ANCILLARY_SURGE_FEE"
-                }
-            ],
-            "totalFee": 3700
-        },
-        "parentId": "371281",
-        "avgRatingString": "4.3",
-        "totalRatingsString": "10K+",
-        "sla": {
-            "deliveryTime": 17,
-            "lastMileTravel": 1.3,
-            "serviceability": "SERVICEABLE",
-            "slaString": "17 mins",
-            "lastMileTravelString": "1.3 km",
-            "iconType": "ICON_TYPE_EMPTY"
-        },
-        "availability": {
-            "nextCloseTime": "2023-11-11 04:00:00",
-            "opened": true
-        },
-        "badges": {},
-        "isOpen": true,
-        "aggregatedDiscountInfoV2": {},
-        "type": "F",
-        "badgesV2": {
-            "entityBadges": {
-                "imageBased": {},
-                "textBased": {},
-                "textExtendedBadges": {}
-            }
-        },
-        "differentiatedUi": {
-            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-            "differentiatedUiMediaDetails": {
-                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                "lottie": {},
-                "video": {}
-            }
-        },
-        "reviewsSummary": {},
-        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-        "restaurantOfferPresentationInfo": {}
+    {
+      id: "229",
+      name: "Meghana Foods",
+      imageId: "xqwpuhgnsaf18te7zvtv",
+      locality: "Koramangala",
+      areaName: "Koramangala",
+      costForTwo: "₹500 for two",
+      cuisines: ["Biryani", "Andhra", "South Indian", "North Indian", "Chinese", "Seafood"],
+      avgRating: 4.5,
+      totalRatingsString: "10K+",
+      deliveryTime: 24,
+      lastMileTravel: 6.4,
+      serviceability: "SERVICEABLE",
+      isOpen: true,
+      discountHeader: "₹120 OFF",
+      discountSubHeader: "ABOVE ₹199",
+      discountTag: "FLAT DEAL",
+      closingTime: "2024-01-09 02:00:00",
+      link: "https://www.swiggy.com/restaurants/meghana-foods-koramangala-bangalore-229",
     },
-    "analytics": {},
-    "cta": {
-        "link": "https://www.swiggy.com/restaurants/leons-burgers-and-wings-leon-grill-koramangala-bangalore-65797",
-        "type": "WEBLINK"
-    }
-},
-{
-    "info": {
-        "id": "17313",
-        "name": "KFC",
-        "cloudinaryImageId": "56c9ab92bd79745fd152a30fa2525426",
-        "locality": "Madiwala",
-        "areaName": "BTM Layout",
-        "costForTwo": "₹400 for two",
-        "cuisines": [
-            "Burgers",
-            "Biryani",
-            "American",
-            "Snacks",
-            "Fast Food"
-        ],
-        "avgRating": 3.9,
-        "feeDetails": {
-            "restaurantId": "17313",
-            "fees": [
-                {
-                    "name": "BASE_DISTANCE",
-                    "fee": 4400
-                },
-                {
-                    "name": "BASE_TIME"
-                },
-                {
-                    "name": "ANCILLARY_SURGE_FEE"
-                }
-            ],
-            "totalFee": 4400
-        },
-        "parentId": "547",
-        "avgRatingString": "3.9",
-        "totalRatingsString": "10K+",
-        "sla": {
-            "deliveryTime": 21,
-            "lastMileTravel": 2.7,
-            "serviceability": "SERVICEABLE",
-            "slaString": "21 mins",
-            "lastMileTravelString": "2.7 km",
-            "iconType": "ICON_TYPE_EMPTY"
-        },
-        "availability": {
-            "nextCloseTime": "2023-11-11 02:00:00",
-            "opened": true
-        },
-        "badges": {},
-        "isOpen": true,
-        "type": "F",
-        "badgesV2": {
-            "entityBadges": {
-                "imageBased": {},
-                "textBased": {},
-                "textExtendedBadges": {}
-            }
-        },
-        "aggregatedDiscountInfoV3": {
-            "header": "20% OFF",
-            "subHeader": "UPTO ₹50"
-        },
-        "differentiatedUi": {
-            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-            "differentiatedUiMediaDetails": {
-                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                "lottie": {},
-                "video": {}
-            }
-        },
-        "reviewsSummary": {},
-        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-        "restaurantOfferPresentationInfo": {}
+    {
+      id: "622202",
+      name: "MOJO Pizza - 2X Toppings",
+      imageId: "59b64f9bb67234987652437f21d379c2",
+      locality: "Langford Road",
+      areaName: "Shantinagar",
+      costForTwo: "₹250 for two",
+      cuisines: ["Pizzas", "Italian", "Fast Food", "Desserts"],
+      avgRating: 4.5,
+      totalRatingsString: "100+",
+      deliveryTime: 18,
+      lastMileTravel: 2.8,
+      serviceability: "SERVICEABLE",
+      isOpen: true,
+      discountHeader: "₹120 OFF",
+      discountSubHeader: "ABOVE ₹199",
+      discountTag: "FLAT DEAL",
+      closingTime: "2024-01-09 02:00:00",
+      badges: [{ iconId: "guiltfree/GF_Logo_android_3x", shortDescription: "options available", fontColor: "#7E808C" }],
+      link: "https://www.swiggy.com/restaurants/mojo-pizza-2x-toppings-langford-road-shantinagar-bangalore-622202",
     },
-    "analytics": {},
-    "cta": {
-        "link": "https://www.swiggy.com/restaurants/kfc-madiwala-btm-layout-bangalore-17313",
-        "type": "WEBLINK"
-    }
-},
-  
+    {
+      id: "337335",
+      name: "Kannur food kitchen",
+      imageId: "a27weqanhnszqiuzsoik",
+      locality: "1st Stage",
+      areaName: "BTM Layout",
+      costForTwo: "₹200 for two",
+      cuisines: ["Kerala", "Biryani", "Beverages"],
+      avgRating: 4.0,
+      totalRatingsString: "10K+",
+      deliveryTime: 27,
+      lastMileTravel: 7.2,
+      serviceability: "SERVICEABLE",
+      isOpen: true,
+      discountHeader: "₹120 OFF",
+      discountSubHeader: "ABOVE ₹199",
+      discountTag: "FLAT DEAL",
+      closingTime: "2024-01-09 04:00:00",
+      badges: [{ iconId: "guiltfree/GF_Logo_android_3x", shortDescription: "options available", fontColor: "#7E808C" }],
+      link: "https://www.swiggy.com/restaurants/kannur-food-kitchen-1st-stage-btm-layout-bangalore-337335",
+    },
+    {
+      id: "48581",
+      name: "Rotti Walla",
+      imageId: "kvlaq1ugkoozqr741zrv",
+      locality: "Appareddy Palya",
+      areaName: "Indiranagar",
+      costForTwo: "₹200 for two",
+      cuisines: ["North Indian", "Chinese", "Snacks", "Beverages", "Tandoor", "South Indian"],
+      avgRating: 4.1,
+      totalRatingsString: "10K+",
+      deliveryTime: 34,
+      lastMileTravel: 6.9,
+      serviceability: "SERVICEABLE",
+      isOpen: true,
+      discountHeader: "₹120 OFF",
+      discountSubHeader: "ABOVE ₹199",
+      discountTag: "FLAT DEAL",
+      closingTime: "2024-01-09 04:00:00",
+      link: "https://www.swiggy.com/restaurants/rotti-walla-appareddy-palya-indiranagar-bangalore-48581",
+    },
+    {
+      id: "46198",
+      name: "Gowdru Hotel",
+      imageId: "n63bvzrhffxj2ljovhnb",
+      locality: "5th Phase",
+      areaName: "JP Nagar",
+      costForTwo: "₹300 for two",
+      cuisines: ["South Indian", "North Indian", "Chinese", "Desserts", "Beverages"],
+      avgRating: 4.2,
+      totalRatingsString: "10K+",
+      deliveryTime: 33,
+      lastMileTravel: 9.5,
+      serviceability: "SERVICEABLE",
+      isOpen: true,
+      discountHeader: "₹120 OFF",
+      discountSubHeader: "ABOVE ₹199",
+      discountTag: "FLAT DEAL",
+      closingTime: "2024-01-09 04:00:00",
+      badges: [{ iconId: "guiltfree/GF_Logo_android_3x", shortDescription: "options available", fontColor: "#7E808C" }],
+      link: "https://www.swiggy.com/restaurants/gowdru-hotel-5th-phase-jp-nagar-bangalore-46198",
+    },
+    {
+      id: "2137",
+      name: "The Shawarma Shop",
+      imageId: "nc7hhy99gm1t3a63vjxi",
+      locality: "Rammurthy Nagar",
+      areaName: "Banaswadi",
+      costForTwo: "₹400 for two",
+      cuisines: ["Lebanese", "Arabian", "Fast Food"],
+      avgRating: 4.1,
+      totalRatingsString: "10K+",
+      deliveryTime: 35,
+      lastMileTravel: 9.4,
+      serviceability: "SERVICEABLE",
+      isOpen: true,
+      discountHeader: "₹120 OFF",
+      discountSubHeader: "ABOVE ₹199",
+      discountTag: "FLAT DEAL",
+      closingTime: "2024-01-09 04:00:00",
+      link: "https://www.swiggy.com/restaurants/the-shawarma-shop-rammurthy-nagar-banaswadi-bangalore-2137",
+    },
+    {
+      id: "4432",
+      name: "Rasta Cafe",
+      imageId: "zdvyvz77xnq9twwvvvuh",
+      locality: "Mysore Road",
+      areaName: "Kengeri",
+      costForTwo: "₹1,500 for two",
+      cuisines: ["Cafe", "Continental", "Italian", "Seafood"],
+      avgRating: 4.3,
+      totalRatingsString: "10K+",
+      deliveryTime: 39,
+      lastMileTravel: 7.3,
+      serviceability: "SERVICEABLE",
+      isOpen: true,
+      discountHeader: "₹120 OFF",
+      discountSubHeader: "ABOVE ₹199",
+      discountTag: "FLAT DEAL",
+      closingTime: "2024-01-09 03:00:00",
+      link: "https://www.swiggy.com/restaurants/rasta-cafe-mysore-road-kengeri-bangalore-4432",
+    },
+    {
+      id: "16934",
+      name: "Andhra Kitchen",
+      imageId: "u4qo5q1d2d6lhnalne0v",
+      locality: "Ayyappa Nagar",
+      areaName: "Marathahalli",
+      costForTwo: "₹300 for two",
+      cuisines: ["Biryani", "Andhra", "North Indian", "South Indian", "Chinese", "Seafood"],
+      avgRating: 4.1,
+      totalRatingsString: "10K+",
+      deliveryTime: 29,
+      lastMileTravel: 6.8,
+      serviceability: "SERVICEABLE",
+      isOpen: true,
+      discountHeader: "₹120 OFF",
+      discountSubHeader: "ABOVE ₹199",
+      discountTag: "FLAT DEAL",
+      closingTime: "2024-01-09 02:00:00",
+      link: "https://www.swiggy.com/restaurants/andhra-kitchen-ayyappa-nagar-marathahalli-bangalore-16934",
+    },
   ];
-
-
-export default resList;
+  
