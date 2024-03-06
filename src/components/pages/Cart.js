@@ -70,7 +70,7 @@ const Cart = () => {
         {isProcessing && (
           <p className="text-xl mt-4">Redirecting...</p>
         )}
-        {showPayment && <Payment />}
+        {showPayment && <Payment/>}
       </div>
      
     </div>

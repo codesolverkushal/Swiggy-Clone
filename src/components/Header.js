@@ -57,7 +57,7 @@ const Header = () => {
       </div>
       <div className="flex items-center">
         <ul className={`flex flex-col sm:flex-row p-4 font-bold text-lg mt-2 sm:mt-2 ${showMenu ? "block" : "hidden"} text-center items-center text-white`}>
-            <li className="px-4 hidden sm:block">Online Status: {onlineStatus ? "✅" : "🔴"}</li>
+            <li className="px-4 hidden sm:block">Online Status {onlineStatus ? "✅" : "🔴"}</li>
             <li className="px-4"><NavLink to="/home">Home</NavLink></li>
             <li className="px-4"><NavLink to="/about">About</NavLink></li>
             <li className="px-4"><NavLink to="/contact">Contact Us</NavLink></li>
