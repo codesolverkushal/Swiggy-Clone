@@ -12,7 +12,7 @@ const Body = () => {
   // set by kushal
   const [searchText,setSearchText] = useState("");
 
-  console.log(listOfRestaurants)
+  // console.log(listOfRestaurants)
 
   const RestaurantCardPromoted = withPromotedLabel(RestaurantCard);
   useEffect(()=>{
@@ -23,24 +23,22 @@ const Body = () => {
   const fetchData = async () => {
     try {
       const data = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-        );
+       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      );
 
       const json = await data.json();
+      // console.log(json);
 
       //It may showing an error during data fetching because sometime data coming from cards[1] sometime cards[2] and different on other times so me make a function and check which value of i gives data in cards[i]
-      async function checkJsonData(jsonData) {
-        for (let i = 0; i < jsonData?.data?.cards.length; i++) {
-          let checkData =
-            jsonData?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle
-              ?.restaurants;
+      async function checkJsonData(jsonData){
+        for(let i = 0; i < jsonData?.data?.cards?.length; i++){
+          let checkData = jsonData?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
 
-          // if checkData is not undefined then return it
-          if (checkData !== undefined) {
+          if(checkData !== undefined){
             return checkData;
           }
         }
-      }
+      } 
       // call the checkJsonData() function which return Swiggy Restaurant data
       const resData = await checkJsonData(json);
 
